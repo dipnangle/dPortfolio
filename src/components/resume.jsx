@@ -27,7 +27,7 @@ const Resume = () => {
                     </span>
                 </button>
             </div>
-            <div className="w-[90%] lg:w-[60%] lg:mt-8 md:mt-8 flex flex-col gap-4 items-center">
+            <div className="w-[90%] lg:w-[60%] lg:mt-8 flex flex-col gap-4 items-center">
                 <img src={resume1} />
                 <img src={resume2} />
             </div>
