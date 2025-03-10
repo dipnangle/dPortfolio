@@ -22,7 +22,7 @@
 }
 
 .navBar {
-	@apply dark:bg-[#080D19] bg-white py-4 lg:px-7 md:px-7 px-4 shadow-md z-10 border-black absolute dark:shadow-md dark:shadow-blue-500/50 w-full fixed top-0 left-0
+	@apply dark:bg-[#080D19] bg-white py-4 lg:px-7 md:px-7 px-4 shadow-md z-10 border-black absolute dark:shadow-md dark:shadow-blue-900/80 w-full fixed top-0 left-0
 }
 
 .portFolio {
@@ -51,7 +51,7 @@
 }
 
 .homeDiv2{
-	@apply lg:w-1/2 md:w-1/2 lg:m-0 md:m-0 sm:flex sm:flex-col sm:items-center
+	@apply lg:w-1/2 md:w-1/2 lg:m-0 md:m-0 lg:flex lg:flex-col lg:items-center grid justify-center
 }
 
 .title {
@@ -75,9 +75,7 @@
 }
 
 .codingBlock{
-	@apply relative bg-gray-100 dark:bg-[#1e1e2e] text-gray-900 dark:text-white rounded-lg p-4 shadow-lg dark:shadow-black/20 w-full max-w-[460px] border border-gray-300 dark:border-gray-700
-    before:absolute before:bottom-[-18px] lg:before:left-3/4 before:left-1/2 before:-translate-x-1/2 
-    before:border-[20px] before:border-solid before:border-t-gray-100 dark:before:border-t-[#1e1e2e] before:border-x-transparent before:border-b-0
+	@apply relative bg-gray-100 dark:bg-[#1e1e2e] text-gray-900 dark:text-white rounded-lg p-4 shadow-lg dark:shadow-[#0057ff4d_0px_0px_10px] w-full max-w-[460px] border border-gray-300 dark:border-gray-700 before:absolute before:bottom-[-18px] xl:before:left-3/4 lg:before:left-1/2 before:left-1/2 before:-translate-x-1/2 before:border-[20px] before:border-solid before:border-t-gray-100 dark:before:border-t-[#1e1e2e] before:border-x-transparent before:border-b-0
 }
 
 .codingBlockTitle{
@@ -93,7 +91,7 @@
 }
 
 .boySection{
-	@apply w-full flex justify-end content-end mt-4
+	@apply w-full lg:flex md:flex md:justify-end lg:justify-end md:content-end lg:content-end mt-4
 }
 
 .boyCoding{
@@ -106,7 +104,7 @@
 }
 
 .skillsDiv {
-	@apply w-full h-full pt-32 bg-sky-50/90 lg:px-10 md:px-10 px-5 dark:bg-[#060d1e]
+	@apply w-full h-full pt-20 bg-sky-50/90 lg:px-10 md:px-10 px-5 dark:bg-[#060d1e]
 }
 
 .development {
@@ -122,7 +120,7 @@
 }
 
 .skillImg {
-	@apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4;
+	@apply grid grid-cols-3 sm:grid-cols-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4;
 }
 
 .skillRow {
