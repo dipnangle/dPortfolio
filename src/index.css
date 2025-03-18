@@ -2,22 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Code:wght@300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 /* start of the taiwlind css */
 
 /* desktop and mobile view i kept one class so it should more easy to use at any location */
-.desktop{
+.desktop {
 	@apply lg:block md:block sm:hidden hidden
 }
 
-.mobile{
+.mobile {
 	@apply lg:hidden md:hidden sm:block
 }
 
-.whf{
+.whf {
 	@apply w-full h-full
 }
 
@@ -37,7 +39,7 @@
 	@apply p-2 inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white dark:bg-[#080B0D] text-sm font-semibold text-gray-900 ring-1 ring-gray-300 ring-inset hover:bg-gray-50
 }
 
-.dropdownOption{
+.dropdownOption {
 	@apply px-4 py-2 text-sm
 }
 
@@ -46,16 +48,16 @@
 	@apply w-screen lg:h-screen md:h-screen h-full bg-sky-50/90 lg:px-10 md:px-10 lg:flex lg:justify-between md:flex md:justify-between items-center dark:bg-[#060d1e]
 }
 
-.homeDiv1{
+.homeDiv1 {
 	@apply lg:w-1/2 md:w-1/2 flex justify-center px-10 lg:pt-0 pt-40
 }
 
-.homeDiv2{
+.homeDiv2 {
 	@apply lg:w-1/2 md:w-1/2 lg:m-0 md:m-0 lg:flex lg:flex-col lg:items-center grid justify-center
 }
 
 .title {
-	@apply flex font-kaushan lg:text-5xl md:text-5xl text-3xl font-bold dark:text-white text-gray-800 
+	@apply flex font-kaushan lg:text-5xl md:text-5xl text-3xl font-bold dark:text-white text-gray-800
 }
 
 .skillsType {
@@ -66,40 +68,40 @@
 	@apply lg:text-lg text-sm mt-1 text-gray-800 dark:text-white font-fira
 }
 
-.myJourneyButton{
+.myJourneyButton {
 	@apply text-sm lg:text-lg md:text-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg flex items-center transition duration-300 transform hover:scale-105 active:scale-95
 }
 
-.codeSection{
+.codeSection {
 	@apply pt-20 w-full lg:pl-32 md:pt-0 lg:pt-0 px-4
 }
 
-.codingBlock{
+.codingBlock {
 	@apply relative bg-gray-100 dark:bg-[#1e1e2e] text-gray-900 dark:text-white rounded-lg p-4 shadow-lg dark:shadow-[#0057ff4d_0px_0px_10px] w-full max-w-[460px] border border-gray-300 dark:border-gray-700 before:absolute before:bottom-[-18px] xl:before:left-3/4 lg:before:left-1/2 before:left-1/2 before:-translate-x-1/2 before:border-[20px] before:border-solid before:border-t-gray-100 dark:before:border-t-[#1e1e2e] before:border-x-transparent before:border-b-0
 }
 
-.codingBlockTitle{
+.codingBlockTitle {
 	@apply flex items-center space-x-2 pb-2 border-b border-gray-300 dark:border-gray-600
 }
 
-.codingBlockBody{
+.codingBlockBody {
 	@apply lg:text-sm md:text-sm text-xs font-mono mt-2
 }
 
-.codingComment{
+.codingComment {
 	@apply text-gray-600 dark:text-green-400
 }
 
-.boySection{
+.boySection {
 	@apply w-full lg:flex md:flex md:justify-end lg:justify-end md:content-end lg:content-end mt-4
 }
 
-.boyCoding{
+.boyCoding {
 	@apply w-[380px] lg:ml-auto md:ml-auto lg:m-0 lg:p-0
 }
 
 /* for mobile view i want the contact me section at the end */
-.contactUs{
+.contactUs {
 	@apply flex justify-center py-10 lg:hidden md:hidden
 }
 
@@ -111,7 +113,7 @@
 	@apply text-3xl text-gray-800 dark:text-white justify-center flex flex-col md:flex-row gap-8 py-10
 }
 
-.developmentReverse{
+.developmentReverse {
 	@apply flex flex-col md:flex-row-reverse gap-8 text-3xl text-gray-800 dark:text-white py-10
 }
 
@@ -128,17 +130,39 @@
 }
 
 .skillCard {
-	@apply flex flex-col items-center w-[90px]  sm:w-[110px] md:w-[110px] bg-gradient-to-tr from-[#F1FAFF] via-[#E3F2FD] to-[#D6E6FF] dark:from-[#121128]  dark:via-[#1D1A38] dark:to-[#180747] border border-[#4A90E2] dark:border-indigo-500 rounded-lg p-4 hover:scale-110 hover:shadow-lg dark:hover:shadow-[0px_0px_12px_#6366F1] transition delay-150 duration-300 ease-in-out;
+	@apply flex flex-col items-center w-[90px] sm:w-[110px] md:w-[110px] bg-gradient-to-tr from-[#F1FAFF] via-[#E3F2FD] to-[#D6E6FF] dark:from-[#121128] dark:via-[#1D1A38] dark:to-[#180747] border border-[#4A90E2] dark:border-indigo-500 rounded-lg p-4 hover:scale-110 hover:shadow-lg dark:hover:shadow-[0px_0px_12px_#6366F1] transition delay-150 duration-300 ease-in-out;
 }
 
 .skillCardText {
 	@apply mt-4 flex justify-center text-xs sm:text-lg md:text-lg text-gray-900 dark:text-white text-nowrap
 }
 
-.skillDivBorder{
+.skillDivBorder {
 	@apply border-blue-400/60 dark:border-blue-800/60
 }
 
-.journeyCard{
-	@apply w-64 p-4	 bg-white dark:bg-gray-800 text-sm dark:text-white text-black rounded-lg shadow-lg text-wrap cursor-pointer
+.journeyCard {
+	@apply w-64 p-4 bg-white dark:bg-gray-800 text-sm dark:text-white text-black rounded-lg shadow-lg text-wrap cursor-pointer
+}
+
+.bg-glass {
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.newspaper-bg {
+  background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+}
+
+.sepia-effect {
+  filter: sepia(90%) contrast(1.1);
+}
+
+.newspaper {
+  font-family: 'EB Garamond', serif;
+  background: #f5f5dc;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }

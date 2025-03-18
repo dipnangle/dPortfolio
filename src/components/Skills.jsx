@@ -88,14 +88,9 @@ const Skills = () => {
 					</div>
 					<div className='lg:w-1/2 w-full'>
 						<div className='skillImg'>
-							{skillIcons.slice(19, 24).map((icon, index) => (
+							{skillIcons.slice(19, 25).map((icon, index) => (
 								<SkillCard title={skillNames[index + 19]} icon={icon} />
 							))}
-						</div>
-						<div className='skillImg'>
-							<div>
-								<SkillCard title='Putty' icon={putty} />
-							</div>
 						</div>
 					</div>
 				</div>

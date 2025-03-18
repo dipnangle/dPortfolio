@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import SVGComponent from "./SVGComponent";
+// import SVGComponent from "./SVGComponent";
+import JourneyPath from "./JourneyPath";
 import Bus from "./Bus";
 import Career from "./Career";
 import InfoModal from "./InfoModal";
+import JourneyParallax from "./JourneyParallax";
+import Newspaper from "./Newspaper";
+import MetroJourney from "./MetroJourney";
+import MetroJourney2 from "./MetroJourney2";
 
 const Journey = () => {
 
@@ -24,14 +29,12 @@ const Journey = () => {
 
     return (
         <>
-            <div className="w-screen h-full bg-sky-50/90 px-10 flex justify-between items-center dark:bg-[#060d1e]">
-                <div className="pt-14 w-full relative">
-                    {/* Main SVG Path */}
-                    <SVGComponent className="relative w-full" />
-                    <div className="absolute top-[21%] left-[4%] w-[100px] h-[100px] transform -translate-x-1/2 -translate-y-1/2">
+            {/* <div className="w-screen h-full bg-sky-50/90 px-10 flex justify-between items-center dark:bg-[#060d1e]">
+                <div className=" w-full relative">
+                    <JourneyPath className="relative w-full"/>
+                    <div className="absolute top-[16%] left-[8%] w-[100px] h-[100px] transform -translate-x-1/2 -translate-y-1/2">
                         <Bus />
                     </div>
-                    {/* Journey Cards */}
                     <div className="absolute top-[32%] left-[8%] text-black dark:text-white transform -translate-x-1/2 -translate-y-1/2">
                         <div className="journeyCard" onClick={() => modalOpen("SSC", "2006 - 2013")}>
                             📌 (SSC) (2006 - 2013)
@@ -71,15 +74,18 @@ const Journey = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            {/* ✅ Fixed InfoModal */}
-            {isModalOpen && (
+            </div> */}
+            {/* {isModalOpen && (
                 <InfoModal 
                     close={modalClose} 
                     title={journeyTitle} 
                     message={journeyMessage} 
                 />
-            )}
+            )} */}
+            {/* <JourneyParallax /> */}
+            {/* <Newspaper/> */}
+            {/* <MetroJourney/> */}
+            <MetroJourney2/>
         </>
     );
 };
