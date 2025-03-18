@@ -13,7 +13,7 @@ Welcome to my **personal portfolio website**! 🚀 This is where I showcase my *
 
 ```sh
 git clone https://github.com/dipnangle/dPortfolio.git
-cd your-portfolio
+cd dPortfolio
 npm install
 npm start
 ```
