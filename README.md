@@ -12,7 +12,7 @@ Welcome to my **personal portfolio website**! 🚀 This is where I showcase my *
 ## 🚀 Installation & Setup
 
 ```sh
-git clone https://github.com/your-username/your-portfolio.git
+git clone https://github.com/dipnangle/dPortfolio.git
 cd your-portfolio
 npm install
 npm start
