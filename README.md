@@ -25,3 +25,7 @@ npm start
 GitHub: [dipnangle](https://github.com/dipnangle)\
 LinkedIn: [Dipesh Nangle](https://www.linkedin.com/in/dipesh-nangle-69419613a/)\
 Email: [dipnangle31@gmail.com]
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Light](https://raw.githubusercontent.com/dipnangle/dPortfolio/main/src/assets/lightmodess.png) | ![Dark](https://raw.githubusercontent.com/dipnangle/dPortfolio/main/src/assets/darkmodess.png) |
