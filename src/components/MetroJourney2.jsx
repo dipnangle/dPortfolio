@@ -1,28 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import InfoModal from "./InfoModal";
 import journeyData from '../assets/journeyData.json';
-
-// const journeyData = [
-// 	{ id: 1, title: "SSC", x: "5%", y: "20%", details: "Completed SSC with distinction" },
-// 	{ id: 2, title: "Diploma In Engineering", x: "30%", y: "20%", details: "Graduated with honors" },
-// 	{ id: 3, title: "Bachelor In Engineering", x: "30%", y: "40%", details: "Worked on AI projects" },
-// 	{ id: 4, title: "Lithotech Food", x: "20%", y: "40%", details: "Started first job at a tech company" },
-// 	{ id: 5, title: "Grade & Grind Technologies", x: "20%", y: "55%", details: "Developed a machine learning model" },
-// 	{ id: 6, title: "Project B", x: "35%", y: "55%", details: "Contributed to an open-source project" },
-// 	{ id: 7, title: "Certification", x: "35%", y: "90%", details: "Earned a cloud computing certificate" },
-// 	{ id: 8, title: "Promotion", x: "45%", y: "90%", details: "Promoted to Senior Developer" },
-// 	{ id: 9, title: "New Role", x: "45%", y: "47%", details: "Transitioned into a managerial role" },
-// 	{ id: 10, title: "Speaking Engagement", x: "55%", y: "47%", details: "Spoke at a tech conference" },
-// 	{ id: 12, title: "Award", x: "55%", y: "15%", details: "Won Best Innovator Award" },
-// 	{ id: 13, title: "Award", x: "65%", y: "15%", details: "Won Best Innovator Award" },
-// 	{ id: 14, title: "Award", x: "65%", y: "35%", details: "Won Best Innovator Award" },
-// 	{ id: 15, title: "Award", x: "85%", y: "35%", details: "Won Best Innovator Award" },
-// 	{ id: 16, title: "Award", x: "85%", y: "55%", details: "Won Best Innovator Award" },
-// 	{ id: 17, title: "Award", x: "72%", y: "55%", details: "Won Best Innovator Award" },
-// 	{ id: 18, title: "Award", x: "72%", y: "75%", details: "Won Best Innovator Award" },
-// 	{ id: 19, title: "Future Goals", x: "95%", y: "75%", details: "Aiming for a leadership role" }
-// ];
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 const MetroJourney2 = () => {
@@ -50,15 +30,34 @@ const MetroJourney2 = () => {
 		setJourneyMessage("");
 	};
 
-	const handleStationClick = (station = 10) => {
+	const handleStationClick = (station, modalCheck = false) => {
 		const index = journeyData.findIndex((s) => s.id === station.id);
 		setSelectedStation(station);
 		setReachedStationIndex(index);
-		modalOpen(station.title, station.details);
+
+		if (modalCheck == true) {
+			modalOpen(station.title, station.details);
+			console.log("yaha he")
+		}
+	};
+
+	const [hoveredStationIndex, setHoveredStationIndex] = useState(null);
+	const timeoutRef = useRef(null);
+
+	const handleMouseEnter = (index) => {
+		if (timeoutRef.current) clearTimeout(timeoutRef.current);
+		console.log(index);
+		setHoveredStationIndex(index);
+	};
+
+	const handleMouseLeave = () => {
+		timeoutRef.current = setTimeout(() => {
+			setHoveredStationIndex(null);
+		}, 500);
 	};
 
 	return (
-		<div className="w-full h-screen flex justify-center items-center mt-4 overscroll-none overflow-hidden transition-all duration-500 bg-sky-50/90 dark:bg-[#060d1e] text-black dark:text-white relative">
+		<div className="w-full h-screen flex justify-center items-center mt-10 overscroll-none overflow-hidden transition-all duration-500 bg-sky-50/90 dark:bg-[#060d1e] text-black dark:text-white relative">
 			<svg width="100%" height="100%" className="rounded-lg shadow-2xl">
 				{journeyDetails.map((station, index) => {
 					if (index === 0) return null;
@@ -67,38 +66,66 @@ const MetroJourney2 = () => {
 						<line
 							key={station.id}
 							x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
-							stroke={index <= reachedStationIndex ? "#00FF00" : "#0044FF"}
-							strokeWidth="6"
 							strokeLinecap="round"
-							className={index > reachedStationIndex ? "fill-[#1F51FF] animate-glow" : "animate-transition"}
+							className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
 						/>
 					);
 				})}
 
 				{journeyDetails.map((station, index) => (
-					<g key={station.id} onClick={() => handleStationClick(station)}>
+					<g key={station.id} onClick={() => handleStationClick(station)} >
 						<motion.circle
-							cx={station.x} cy={station.y} r={selectedStation?.id === station.id ? "12" : "10"}
-							fill={
-								index < reachedStationIndex ? "#00FF00" : 
-								index === reachedStationIndex ? "#00D1FF" : "#FF0080"}
-							stroke="#FFD700" strokeWidth="3"
+							cx={station.x} cy={station.y} r={selectedStation?.id === station.id ? "20" : "18"}
 							whileHover={{ scale: 1.3 }}
-							className="cursor-pointer drop-shadow-xl"
+							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'}`}
 						/>
-						<text
-							x={`${parseFloat(station.titlex)}%`}
-							y={`${parseFloat(station.titley)}%`}
-							fontSize="13"
-							fontWeight="semi-bold"
-							textAnchor="middle"
-							fill="currentColor"
-						>
-							{station.title}
-						</text>
 					</g>
 				))}
 			</svg>
+
+			<div className="absolute inset-0">
+				{journeyDetails.map((station, index) => (
+					station.title ? (
+						<div
+							key={index}
+							onMouseEnter={() => handleMouseEnter(index)}
+							onMouseLeave={handleMouseLeave}
+							onClick={() => handleStationClick(station)}
+							className="cursor-pointer"
+						>
+							{/* Station Circle (Clickable Point) */}
+							<div className="absolute" 
+								style={{
+									left: `${station.x}`,
+									top: `${station.y}`,
+									transform: "translate(-50%, -50%)",
+								}}
+							>
+								<i className={`${station.icon} text-blue-500 dark:text-green-400`}></i>
+							</div>
+
+							{/* Station Detail Card (Only Visible on Hover) */}
+							{hoveredStationIndex === index && (
+								<div
+									className="absolute cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg shadow-lg border border-green-400/40 backdrop-blur-md bg-white/30 dark:bg-black/30 text-gray-900 dark:text-white text-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-green-500"
+									style={{
+										whiteSpace: "nowrap",
+										left: `${parseFloat(station.x)}%`,
+										top: `${parseFloat(station.y) - 7}%`,
+										transform: "translate(-50%, -50%)",
+										position: "absolute"
+									}}
+									onClick={() => handleStationClick(station, true)}
+								>
+									<i className={`${station.icon} text-blue-500 dark:text-green-400`}></i>
+									<span className="text-[14px] font-medium">{station.title}</span>
+									<div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#7C65F7] dark:border-t-[#7A62F7]"></div>
+								</div>
+							)}
+						</div>
+					) : null
+				))}
+			</div>
 
 			{isModalOpen && (
 				<InfoModal

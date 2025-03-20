@@ -6,7 +6,9 @@
         "y": "20%",
         "details": "Completed SSC with distinction",
         "titlex": "5%",
-        "titley": "17%"
+        "titley": "17%",
+        "icon":""
+
     },
     {
         "id": 2,
@@ -15,7 +17,9 @@
         "y": "20%",
         "details": "Graduated with honors",
         "titlex": "30%",
-        "titley": "15%"
+        "titley": "15%",
+        "icon":"bi bi-backpack-fill",
+        "direction":"bottom"
     },
     {
         "id": 3,
@@ -24,7 +28,9 @@
         "y": "40%",
         "details": "Worked on AI projects",
         "titlex": "37%",
-        "titley": "41%"
+        "titley": "41%",
+        "icon":"bi bi-backpack4-fill",
+        "direction":"left"
     },
     {
         "id": 4,
@@ -33,7 +39,8 @@
         "y": "40%",
         "details": "Started first job at a tech company",
         "titlex": "13%",
-        "titley": "41%"
+        "titley": "41%",
+        "icon":"bi bi-mortarboard-fill"
     },
     {
         "id": 5,
@@ -42,7 +49,8 @@
         "y": "55%",
         "details": "Developed a machine learning model",
         "titlex": "14%",
-        "titley": "55%"
+        "titley": "55%",
+        "icon":"bi bi-buildings-fill"
     },
     {
         "id": 6,
@@ -51,7 +59,8 @@
         "y": "55%",
         "details": "Contributed to an open-source project",
         "titlex": "28%",
-        "titley": "60%"
+        "titley": "60%",
+        "icon":"bi bi-buildings-fill"
     },
     {
         "id": 7,
@@ -60,7 +69,8 @@
         "y": "90%",
         "details": "Earned a cloud computing certificate",
         "titlex": "40%",
-        "titley": "95%"
+        "titley": "95%",
+        "icon":"bi bi-virus2"
     },
     {
         "id": 8,
@@ -78,7 +88,8 @@
         "y": "47%",
         "details": "Transitioned into a managerial role",
         "titlex": "49%",
-        "titley": "51%"
+        "titley": "51%",
+        "icon":"bi bi-file-earmark-code-fill"
     },
     {
         "id": 10,
@@ -87,7 +98,8 @@
         "y": "47%",
         "details": "Spoke at a tech conference",
         "titlex": "60%",
-        "titley": "45%"
+        "titley": "45%",
+        "icon":"bi bi-duffle-fill"
     },
     {
         "id": 12,
@@ -96,7 +108,8 @@
         "y": "15%",
         "details": "Won Best Innovator Award",
         "titlex": "59%",
-        "titley": "12%"
+        "titley": "12%",
+        "icon":"bi bi-file-earmark-code-fill"
     },
     {
         "id": 13,
@@ -159,6 +172,7 @@
         "y": "75%",
         "details": "Aiming for a leadership role",
         "titlex": "95%",
-        "titley": "80%"
+        "titley": "80%",
+        "icon": "bi bi-globe-central-south-asia"
     }
 ]
