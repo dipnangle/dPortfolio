@@ -74,18 +74,28 @@ const Journey = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
-            {/* {isModalOpen && (
+            </div>
+            {isModalOpen && (
                 <InfoModal 
                     close={modalClose} 
                     title={journeyTitle} 
                     message={journeyMessage} 
                 />
-            )} */}
-            {/* <JourneyParallax /> */}
-            {/* <Newspaper/> */}
+            )}
+            <JourneyParallax /> */}
+            {/* <Newspaper/>
             {/* <MetroJourney/> */}
-            <MetroJourney2/>
+            <div className="relative">
+                <MetroJourney2/>
+                <div className="absolute top-[75%] left-[58%] w-[100px] h-[100px] transform -translate-x-1/2 -translate-y-1/2">
+                    <Career />
+                </div>
+                <div className="absolute top-[30%] right-10">
+                    <div className="flex content-center justify-center">
+                        dipesh
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
