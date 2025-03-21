@@ -18,17 +18,23 @@ const MetroJourney2 = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [journeyTitle, setJourneyTitle] = useState("");
 	const [journeyMessage, setJourneyMessage] = useState("");
+	const [journeyIcon, setJourneyIcon] = useState("");
+	const [journeyLink, setJourneyLink] = useState("");
 
-	const modalOpen = (title, message) => {
+	const modalOpen = (station) => {
 		setIsModalOpen(true);
-		setJourneyTitle(title);
-		setJourneyMessage(message);
+		setJourneyTitle(station.title);
+		setJourneyMessage(station.details);
+		setJourneyIcon(station.icon);
+		setJourneyLink(station.link);
 	};
 
 	const modalClose = () => {
 		setIsModalOpen(false);
 		setJourneyTitle("");
 		setJourneyMessage("");
+		setJourneyIcon("");
+		setJourneyLink("");
 	};
 
 	const handleStationClick = (station, modalCheck = false) => {
@@ -37,7 +43,7 @@ const MetroJourney2 = () => {
 		setReachedStationIndex(index);
 
 		if (modalCheck == true) {
-			modalOpen(station.title, station.details);
+			modalOpen(station);
 			console.log("yaha he")
 		}
 	};
@@ -86,11 +92,11 @@ const MetroJourney2 = () => {
 
 				{journeyDetails.map((station, index) => (
 					<g key={station.id} onClick={() => handleStationClick(station)} >
-						<motion.circle
+						{/* <motion.circle
 							cx={station.x} cy={station.y} r={selectedStation?.id === station.id ? "20" : "18"}
 							whileHover={{ scale: 1.3 }}
 							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'}`}
-						/>
+						/> */}
 						{/* <motion.circle
 							cx={station.x}
 							cy={station.y}
@@ -102,7 +108,7 @@ const MetroJourney2 = () => {
 							transition={{ duration: 0.3 }}
 							className="cursor-pointer fill-[#00F8C4] drop-shadow-lg"
 						/> */}
-						{/* <motion.circle
+						<motion.circle
 							cx={station.x}
 							cy={station.y}
 							r={selectedStation?.id === station.id ? "20" : "18"}
@@ -112,7 +118,7 @@ const MetroJourney2 = () => {
 							initial={{ filter: "drop-shadow(0px 0px 10px #00F8C4)" }}
 							animate={{ filter: ["drop-shadow(0px 0px 10px #00F8C4)", "drop-shadow(0px 0px 20px #00F8C4)"] }}
 							transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-						/> */}
+						/>
 						{/* <motion.circle
 							cx={journeyDetails[0].x}
 							cy={journeyDetails[0].y}
@@ -142,17 +148,15 @@ const MetroJourney2 = () => {
 				))}
 			</div>
 			{/* start kind of heartbeat css */}
-			<div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-3xl animate-pulse"></div>
+			{/* <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-3xl animate-pulse"></div> */}
 			<div class="absolute inset-0 animate-[float_6s_infinite_alternate] blur-lg bg-white/10 w-2 h-2 rounded-full"></div>
-			<div class="animate-bounce text-gray-400 absolute bottom-4 left-1/2 transform -translate-x-1/2">
-				⬇️ Scroll Down
-			</div>
-
 			{isModalOpen && (
 				<InfoModal
 					close={modalClose}
 					title={journeyTitle}
 					message={journeyMessage}
+					icon={journeyIcon}
+					link={journeyLink}
 				/>
 			)}
 		</div>

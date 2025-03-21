@@ -4,29 +4,29 @@
         "title": "",
         "x": "5%",
         "y": "20%",
-        "details": "Completed SSC with distinction",
+        "details": "",
         "titlex": "5%",
         "titley": "17%",
         "icon":""
-
     },
     {
         "id": 2,
         "title": "SSC",
         "x": "30%",
         "y": "20%",
-        "details": "Graduated with honors",
+        "details": "I completed my Secondary School Certificate (SSC) from Shailendra Education Society in Dahisar MUmbai (400068) between 2006 and 2013. Throughout these years, I developed a strong academic foundation and actively participated in various school activities. My dedication and consistent efforts helped me achieve an impressive 83.09%, reflecting my commitment to learning. The school provided a nurturing environment that encouraged both academic excellence and extracurricular involvement. I gained essential skills in subjects like Mathematics, Science, and Languages, which laid the groundwork for my further studies. The support of my teachers and the competitive learning atmosphere played a crucial role in shaping my educational journey. This phase of my life not only strengthened my knowledge but also instilled discipline and a passion for continuous learning.",
         "titlex": "30%",
         "titley": "15%",
         "icon":"bi bi-backpack-fill",
-        "direction":"bottom"
+        "direction":"bottom",
+        "link":"https://shailendradegreecollege.in/"
     },
     {
         "id": 3,
         "title": "Diploma In Engineering",
         "x": "30%",
         "y": "40%",
-        "details": "Worked on AI projects",
+        "details": "I pursued my Diploma in Engineering from Pravin Patil College of Engineering in Mumbai between 2013 and 2016, where I built a strong technical foundation. With a keen interest in engineering concepts, I dedicated myself to both theoretical knowledge and practical applications. My hard work and perseverance helped me secure a commendable 76.53%, reflecting my consistent academic performance. The curriculum exposed me to core engineering subjects, hands-on projects, and industrial training, enhancing my problem-solving skills. I actively engaged in workshops and technical events, which further broadened my understanding of real-world engineering challenges. The faculty and learning environment played a significant role in shaping my analytical thinking and technical expertise. This diploma program was a crucial stepping stone in my journey toward a deeper understanding of engineering principles and their applications.",
         "titlex": "37%",
         "titley": "41%",
         "icon":"bi bi-backpack4-fill",
@@ -37,7 +37,7 @@
         "title": "Bachelor In Engineering",
         "x": "20%",
         "y": "40%",
-        "details": "Started first job at a tech company",
+        "details": "I pursued my Bachelor of Engineering from VIT (Viva Institute Of Technology) in Mumbai between 2016 and 2019, where I honed my technical and analytical skills. Throughout the program, I explored advanced engineering concepts, problem-solving techniques, and real-world applications. With a CGPA of 7.31, I maintained a balance between academics and hands-on project work, which strengthened my practical knowledge. The rigorous curriculum, combined with laboratory experiments and industry exposure, provided a deeper insight into engineering innovations. I actively participated in seminars, technical competitions, and group projects, enhancing both my teamwork and leadership skills. Notably, I won first prize in a project competition for developing a <b>Multipurpose CNC Plotter using a Microcontroller<b>, which showcased my ability to apply theoretical knowledge to practical implementations. Furthermore, I published a research paper in IJRAR (International Journal of Research and Analytical Reviews) related to this project, demonstrating my ability to contribute valuable insights to the academic and engineering community. The guidance of experienced faculty and industry experts helped me develop a structured approach to solving complex engineering problems. This degree laid a strong foundation for my transition into the professional world, equipping me with the necessary skills to excel in the field of technology and innovation.",
         "titlex": "13%",
         "titley": "41%",
         "icon":"bi bi-mortarboard-fill"
