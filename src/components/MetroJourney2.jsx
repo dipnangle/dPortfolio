@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import InfoModal from "./InfoModal";
 import journeyData from '../assets/journeyData.json';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Tooltip from "./Tooltip";
 
 
 const MetroJourney2 = () => {
@@ -63,11 +64,22 @@ const MetroJourney2 = () => {
 					if (index === 0) return null;
 					const prev = journeyDetails[index - 1];
 					return (
-						<line
+						// <line
+						// 	key={station.id}
+						// 	x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
+						// 	strokeLinecap="round"
+						// 	className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
+						// />
+
+						<motion.line
 							key={station.id}
 							x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
 							strokeLinecap="round"
-							className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
+							className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'
+								}`}
+							initial={{ strokeDasharray: "100%", strokeDashoffset: "100%" }}
+							animate={{ strokeDashoffset: "0%" }}
+							transition={{ duration: 1.5, ease: "easeInOut" }}
 						/>
 					);
 				})}
@@ -79,6 +91,39 @@ const MetroJourney2 = () => {
 							whileHover={{ scale: 1.3 }}
 							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'}`}
 						/>
+						{/* <motion.circle
+							cx={station.x}
+							cy={station.y}
+							r="18"
+							whileHover={{
+								scale: 1.3,
+								filter: "drop-shadow(0px 0px 30px #00D1FF)"
+							}}
+							transition={{ duration: 0.3 }}
+							className="cursor-pointer fill-[#00F8C4] drop-shadow-lg"
+						/> */}
+						{/* <motion.circle
+							cx={station.x}
+							cy={station.y}
+							r={selectedStation?.id === station.id ? "20" : "18"}
+							whileHover={{ scale: 1.3 }}
+							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'
+								}`}
+							initial={{ filter: "drop-shadow(0px 0px 10px #00F8C4)" }}
+							animate={{ filter: ["drop-shadow(0px 0px 10px #00F8C4)", "drop-shadow(0px 0px 20px #00F8C4)"] }}
+							transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+						/> */}
+						{/* <motion.circle
+							cx={journeyDetails[0].x}
+							cy={journeyDetails[0].y}
+							r="6"
+							fill="#00F8C4"
+							animate={{
+								x: [journeyDetails[0].x, journeyDetails[1].x, journeyDetails[2].x, journeyDetails[3].x],
+								y: [journeyDetails[0].y, journeyDetails[1].y, journeyDetails[2].y, journeyDetails[3].y]
+							}}
+							transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+						/> */}
 					</g>
 				))}
 			</svg>
@@ -86,45 +131,21 @@ const MetroJourney2 = () => {
 			<div className="absolute inset-0">
 				{journeyDetails.map((station, index) => (
 					station.title ? (
-						<div
-							key={index}
-							onMouseEnter={() => handleMouseEnter(index)}
-							onMouseLeave={handleMouseLeave}
-							onClick={() => handleStationClick(station)}
-							className="cursor-pointer"
-						>
-							{/* Station Circle (Clickable Point) */}
-							<div className="absolute" 
-								style={{
-									left: `${station.x}`,
-									top: `${station.y}`,
-									transform: "translate(-50%, -50%)",
-								}}
-							>
-								<i className={`${station.icon} text-blue-500 dark:text-green-400`}></i>
+						<div key={index} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} onClick={() => handleStationClick(station)} className="cursor-pointer">
+							<div className="absolute" style={{ left: `${station.x}`, top: `${station.y}`, transform: "translate(-50%, -50%)" }}>
+								<Tooltip tooltipTitle={station.title} onClick={() => handleStationClick(station, true)}>
+									<i className={`${station.icon} text-blue-500 dark:text-green-400`} onClick={(e) => { e.stopPropagation(); handleStationClick(station) }}></i>
+								</Tooltip>
 							</div>
-
-							{/* Station Detail Card (Only Visible on Hover) */}
-							{hoveredStationIndex === index && (
-								<div
-									className="absolute cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg shadow-lg border border-green-400/40 backdrop-blur-md bg-white/30 dark:bg-black/30 text-gray-900 dark:text-white text-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-green-500"
-									style={{
-										whiteSpace: "nowrap",
-										left: `${parseFloat(station.x)}%`,
-										top: `${parseFloat(station.y) - 7}%`,
-										transform: "translate(-50%, -50%)",
-										position: "absolute"
-									}}
-									onClick={() => handleStationClick(station, true)}
-								>
-									<i className={`${station.icon} text-blue-500 dark:text-green-400`}></i>
-									<span className="text-[14px] font-medium">{station.title}</span>
-									<div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#7C65F7] dark:border-t-[#7A62F7]"></div>
-								</div>
-							)}
 						</div>
 					) : null
 				))}
+			</div>
+			{/* start kind of heartbeat css */}
+			<div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-3xl animate-pulse"></div>
+			<div class="absolute inset-0 animate-[float_6s_infinite_alternate] blur-lg bg-white/10 w-2 h-2 rounded-full"></div>
+			<div class="animate-bounce text-gray-400 absolute bottom-4 left-1/2 transform -translate-x-1/2">
+				⬇️ Scroll Down
 			</div>
 
 			{isModalOpen && (

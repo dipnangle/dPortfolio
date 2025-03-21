@@ -1,3 +1,5 @@
+import MetroJourney2 from "./MetroJourney2";
+
 const journeyData = [
     { id: 1, title: "SSC", x: "10%", y: "20%", details: "Completed SSC with distinction" },
     { id: 2, title: "College", x: "35%", y: "20%", details: "Graduated with honors" },
@@ -126,3 +128,26 @@ const journeyData = [
 						''
 				))}
 			</div>1 */}
+
+kind of tooltip for MetroJourney2 component
+            {/* Station Detail Card (Only Visible on Hover) */}
+							{/* {hoveredStationIndex === index && (
+								<div
+									className="absolute cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg shadow-lg border border-green-400/40 backdrop-blur-md bg-white/30 dark:bg-black/30 text-gray-900 dark:text-white text-sm transition-all duration-300 hover:shadow-xl hover:scale-105 hover:border-green-500"
+									style={{
+										whiteSpace: "nowrap",
+										left: `${parseFloat(station.x)}%`,
+										top: `${parseFloat(station.y) - 7}%`,
+										transform: "translate(-50%, -50%)",
+										position: "absolute"
+									}}
+									onClick={() => handleStationClick(station, true)}
+								>
+									<i className={`${station.icon} text-blue-500 dark:text-green-400`}></i>
+									<span className="text-[14px] font-medium">{station.title}</span>
+									<div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#7C65F7] dark:border-t-[#7A62F7]"></div>
+								</div>
+							)} */}
+
+// star tailwind code
+<div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-[#0ea5e9] shadow-[0_0_40px_rgba(14,165,233,0.9)] before:absolute before:w-24 before:h-24 before:rounded-full before:bg-[#0ea5e9] before:opacity-50 before:blur-2xl after:absolute after:w-32 after:h-32 after:rounded-full after:bg-[#0ea5e9] after:opacity-20 after:blur-[80px] animate-pulse"></div>

@@ -86,7 +86,7 @@ const Journey = () => {
             {/* <Newspaper/>
             {/* <MetroJourney/> */}
             <div className="relative">
-                <MetroJourney2/>
+                <MetroJourney2 />
                 {/* <div className="absolute top-[75%] left-[58%] w-[100px] h-[100px] transform -translate-x-1/2 -translate-y-1/2">
                     <Career />
                 </div> */}
