@@ -64,7 +64,7 @@ const MetroJourney2 = () => {
 	};
 
 	return (
-		<div className="w-full h-screen flex justify-center items-center mt-10 overscroll-none overflow-hidden transition-all duration-500 bg-sky-50/90 dark:bg-[#060d1e] text-black dark:text-white relative">
+		<div className="w-full h-screen flex justify-center items-center mt-10 overscroll-none overflow-hidden transition-all duration-500 bg-sky-50/90 shadow_background text-black dark:text-white relative">
 			<svg width="100%" height="100%" className="rounded-lg shadow-2xl">
 				{journeyDetails.map((station, index) => {
 					if (index === 0) return null;
@@ -81,8 +81,8 @@ const MetroJourney2 = () => {
 							key={station.id}
 							x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
 							strokeLinecap="round"
-							className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'
-								}`}
+							// className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
+							className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-[#2ba35b]' : 'stroke-[#7C65F7] dark:stroke-[#344bae]'}`}
 							initial={{ strokeDasharray: "100%", strokeDashoffset: "100%" }}
 							animate={{ strokeDashoffset: "0%" }}
 							transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -113,8 +113,8 @@ const MetroJourney2 = () => {
 							cy={station.y}
 							r={selectedStation?.id === station.id ? "20" : "18"}
 							whileHover={{ scale: 1.3 }}
-							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'
-								}`}
+							// className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'}`}
+							className={`cursor-pointer shadow-[#fff] drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#2ba35b]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#344bae]'}`}
 							initial={{ filter: "drop-shadow(0px 0px 10px #00F8C4)" }}
 							animate={{ filter: ["drop-shadow(0px 0px 10px #00F8C4)", "drop-shadow(0px 0px 20px #00F8C4)"] }}
 							transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
@@ -140,7 +140,7 @@ const MetroJourney2 = () => {
 						<div key={index} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} onClick={() => handleStationClick(station)} className="cursor-pointer">
 							<div className="absolute" style={{ left: `${station.x}`, top: `${station.y}`, transform: "translate(-50%, -50%)" }}>
 								<Tooltip tooltipTitle={station.title} onClick={() => handleStationClick(station, true)}>
-									<i className={`${station.icon} text-blue-500 dark:text-green-400`} onClick={(e) => { e.stopPropagation(); handleStationClick(station) }}></i>
+									<i className={`${station.icon} text-blue-500 dark:text-white`} onClick={(e) => { e.stopPropagation(); handleStationClick(station) }}></i>
 								</Tooltip>
 							</div>
 						</div>
