@@ -1,6 +1,5 @@
 import React from "react";
 import MetroJourney2 from "./MetroJourney2";
-import MobJourney from "./MobJourney";
 
 const Journey = () => {
     return (
