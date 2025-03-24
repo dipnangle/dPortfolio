@@ -38,8 +38,8 @@ export default function Mob() {
     return (
         <div ref={containerRef} className="relative flex flex-col items-center w-full h-[100vh*10] overflow-y-auto">
             {/* SVG Curved Path for Timeline */}
-            <svg className="absolute left-1/5 w-1 h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M50,0 C50,25 50,75 50,100" stroke="gray" strokeWidth="2" fill="none" className="transition-all duration-500" 
+            <svg className="absolute left-1/3 w-1 h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M50,0 C50,25 50,75 50,100" stroke="gray" strokeWidth="4" fill="none" className="transition-all duration-500" 
                     style={{ stroke: scrollProgress > 0 ? "blue" : "gray" }} />
             </svg>
 
@@ -53,7 +53,7 @@ export default function Mob() {
                     className="w-full flex items-center justify-center h-screen relative"
                 >
                     {/* Milestone Dot & Icon */}
-                    <div className="absolute left-1/5 transform -translate-x-1/2 flex flex-col items-center">
+                    <div className="absolute left-1/3 transform -translate-x-1/2 flex flex-col items-center">
                         <div className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded-full shadow-lg">
                             <i className={item.icon}></i>
                         </div>
@@ -64,8 +64,8 @@ export default function Mob() {
                         className="w-full max-w-md flex items-center justify-between px-4"
                         style={{ transform: `translateY(${parallaxOffset * -0.1}px)` }}
                     >
-                        <div className="w-1/2 text-right pr-4 font-bold text-lg text-blue-600 dark:text-white">{item.title}</div>
-                        <div className="w-1/2 pl-4 text-base text-gray-700 dark:text-gray-300">{item.details}</div>
+                        <div className="w-1/3 text-right pr-5 font-bold text-lg text-blue-600 dark:text-white">{item.title}</div>
+                        <div className="w-2/3 pl-4 text-base text-gray-700 dark:text-gray-300">{item.details}</div>
                     </motion.div>
                 </motion.div>
             ))}
