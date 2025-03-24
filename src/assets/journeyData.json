@@ -1,0 +1,193 @@
+[
+    {
+        "id": 1,
+        "title": "",
+        "x": "5%",
+        "y": "20%",
+        "details": "",
+        "titlex": "5%",
+        "titley": "17%",
+        "icon":""
+    },
+    {
+        "id": 2,
+        "title": "SSC",
+        "x": "30%",
+        "y": "20%",
+        "details": "I completed my Secondary School Certificate (SSC) from Shailendra Education Society in Dahisar MUmbai (400068) between 2006 and 2013. Throughout these years, I developed a strong academic foundation and actively participated in various school activities. My dedication and consistent efforts helped me achieve an impressive 83.09%, reflecting my commitment to learning. The school provided a nurturing environment that encouraged both academic excellence and extracurricular involvement. I gained essential skills in subjects like Mathematics, Science, and Languages, which laid the groundwork for my further studies. The support of my teachers and the competitive learning atmosphere played a crucial role in shaping my educational journey. This phase of my life not only strengthened my knowledge but also instilled discipline and a passion for continuous learning.",
+        "titlex": "30%",
+        "titley": "15%",
+        "icon":"bi bi-backpack",
+        "direction":"bottom",
+        "link":"https://shailendradegreecollege.in/"
+    },
+    {
+        "id": 3,
+        "title": "Diploma In Engineering",
+        "x": "30%",
+        "y": "40%",
+        "details": "I pursued my Diploma in Engineering from Pravin Patil College of Engineering in Mumbai between 2013 and 2016, where I built a strong technical foundation. With a keen interest in engineering concepts, I dedicated myself to both theoretical knowledge and practical applications. My hard work and perseverance helped me secure a commendable 76.53%, reflecting my consistent academic performance. The curriculum exposed me to core engineering subjects, hands-on projects, and industrial training, enhancing my problem-solving skills. I actively engaged in workshops and technical events, which further broadened my understanding of real-world engineering challenges. The faculty and learning environment played a significant role in shaping my analytical thinking and technical expertise. This diploma program was a crucial stepping stone in my journey toward a deeper understanding of engineering principles and their applications.",
+        "titlex": "37%",
+        "titley": "41%",
+        "icon":"bi bi-backpack4",
+        "link":"https://www.prppolytechnic.com/"
+    },
+    {
+        "id": 4,
+        "title": "Bachelor In Engineering",
+        "x": "20%",
+        "y": "40%",
+        "details": "I pursued my Bachelor of Engineering from VIT (Viva Institute Of Technology) in Mumbai between 2016 and 2019, where I honed my technical and analytical skills. Throughout the program, I explored advanced engineering concepts, problem-solving techniques, and real-world applications. With a CGPA of 7.31, I maintained a balance between academics and hands-on project work, which strengthened my practical knowledge. The rigorous curriculum, combined with laboratory experiments and industry exposure, provided a deeper insight into engineering innovations. I actively participated in seminars, technical competitions, and group projects, enhancing both my teamwork and leadership skills. Notably, I won first prize in a project competition for developing a <b>Multipurpose CNC Plotter using a Microcontroller<b>, which showcased my ability to apply theoretical knowledge to practical implementations. Furthermore, I published a research paper in IJRAR (International Journal of Research and Analytical Reviews) related to this project, demonstrating my ability to contribute valuable insights to the academic and engineering community. The guidance of experienced faculty and industry experts helped me develop a structured approach to solving complex engineering problems. This degree laid a strong foundation for my transition into the professional world, equipping me with the necessary skills to excel in the field of technology and innovation.",
+        "titlex": "13%",
+        "titley": "41%",
+        "icon":"bi bi-mortarboard",
+        "link":"https://www.viva-technology.org/New/"
+    },
+    {
+        "id": 5,
+        "title": "Lithotech Food",
+        "x": "20%",
+        "y": "55%",
+        "details": "I started my professional journey as a Mechanical Design Engineer at Lithotech Food and Spice Machinery, where I worked on designing and developing mechanical components and systems. During my time there, I gained hands-on experience with CAD software, technical drawings, and engineering design principles. My role involved collaborating with cross-functional teams to create efficient and optimized designs that met industry standards. However, over time, I realized that my true interests did not align with mechanical design. I found myself more drawn to problem-solving, logic-based challenges, and technology-driven solutions, rather than working with physical components. This realization led me to start exploring computer engineering as a potential career path. Toward the end of my second year at the company, as the COVID-19 pandemic hit, I took the opportunity to deepen my knowledge in software development and began preparing for a career transition into the tech industry",
+        "titlex": "14%",
+        "titley": "55%",
+        "icon":"bi bi-buildings",
+        "link":"https://www.lithotechfoodspicemachinery.com/"
+    },
+    {
+        "id": 6,
+        "title": "Grade & Grind Technologies",
+        "x": "35%",
+        "y": "55%",
+        "details": "After spending two years as a Mechanical Design Engineer at Lithotech Food and Spice Machinery, I decided to take on a new challenge and joined Grade and Grind Technologies PVT LTD, a firm founded by some of my former colleagues. This move allowed me to work in a more dynamic and collaborative environment, where I had the opportunity to refine my technical skills and gain deeper insights into product development and innovation. While I appreciated the experience and expertise I gained in mechanical design, I increasingly found myself drawn to problem-solving beyond traditional engineering. During my time at Grade and Grind Technologies PVT LTD, the COVID-19 pandemic and remote work opportunities gave me the flexibility to explore new areas. I began learning the basics of coding, working with Python, PHP, HTML, and CSS, which deepened my interest in software development. As I delved deeper into programming, I realized that computer engineering aligned more closely with my passion for technology and problem-solving. Motivated by this, I actively upskilled myself and started applying to IT roles, aiming to transition into a field where I could build scalable solutions through software",
+        "titlex": "28%",
+        "titley": "60%",
+        "icon":"bi bi-buildings",
+        "link":"http://ggtpl.com/"
+    },
+    {
+        "id": 7,
+        "title": "Coding Start",
+        "modalTitle": "Journey into Software Development",
+        "x": "35%",
+        "y": "90%",
+        "details": "After transitioning to Grade and Grind Technologies PVT LTD, I found myself increasingly drawn to software development. The COVID-19 pandemic and remote work opportunities provided me with the flexibility to explore coding more seriously. Initially, I started with Python, PHP, HTML, and CSS, experimenting with small projects to understand the fundamentals of programming and web development. As my interest grew, I began building sample websites, working on basic CRUD applications, and exploring how backend and frontend technologies interact. I spent countless hours refining my skills, debugging issues, and understanding how to structure code efficiently. With each project, I became more confident in problem-solving and logical thinking, which further fueled my passion for software development. Realizing that this was the career direction I truly wanted, I dedicated my free time to upskilling—watching online tutorials, taking coding challenges, and contributing to small projects. This self-driven learning experience reinforced my decision to pursue a transition into IT, setting the stage for my career shift into computer engineering.",
+        "titlex": "40%",
+        "titley": "95%",
+        "icon":"bi bi-file-earmark-code-fill"
+    },
+    {
+        "id": 8,
+        "title": "Progess Coding",
+        "modalTitle": "Backend & Database Fundamentals",
+        "x": "45%",
+        "y": "90%",
+        "details": "As I got more comfortable with coding, I focused on understanding the core logic behind web applications. I explored PHP and Python, learning how they handle server-side processing, authentication, and API interactions. To strengthen my foundation, I studied databases like MySQL, grasping concepts like query optimization, relationships, and data structuring. Additionally, I familiarized myself with Linux commands, gaining insights into server management, file handling, and basic shell scripting. This phase was all about absorbing knowledge, understanding best practices, and preparing myself for a transition into the tech industry.",
+        "titlex": "45%",
+        "titley": "95%",
+        "icon": "bi bi-filetype-py"
+    },
+    {
+        "id": 9,
+        "title": "Softcaulous",
+        "x": "45%",
+        "y": "47%",
+        "details": "After months of self-learning and hands-on experimentation, I secured an opportunity at Softaculous.Ltd as a Software Development Engineer. This was a major turning point in my career, marking my transition from self-taught programming to working on real-world applications in a professional setting.\n\n One of the things I genuinely appreciate about Softaculous.Ltd is that they valued my skills, dedication, and problem-solving abilities over formal qualifications alone. While many companies emphasize degree requirements, Softaculous.Ltd recognized my potential and practical expertise, giving me the chance to prove myself in a professional environment. This opportunity was instrumental in shaping my career and strengthening my confidence as a software engineer.\n\n At Softaculous.Ltd, I worked on developing and optimizing software solutions, improving my understanding of software architecture, coding best practices, and scalable application development. I collaborated with experienced developers, which accelerated my learning curve and provided valuable insights into industry-standard tools, frameworks, and development methodologies. The transition from self-learning to professional development was both challenging and exciting, pushing me to continuously improve my problem-solving abilities, debugging skills, and coding efficiency.\n\n This experience reinforced my passion for software engineering and provided me with the foundation to grow further in the tech industry. Working in a fast-paced, innovation-driven environment allowed me to expand my knowledge across different programming paradigms and refine my expertise in backend and full-stack development.\n\n This journey from discovering my interest in coding during the pandemic to landing my first Software Development Engineer role has been incredibly fulfilling. It reinforced my belief that adaptability, continuous learning, and persistence are key to thriving in the tech industry.",
+        "titlex": "49%",
+        "titley": "51%",
+        "icon":"bi bi-duffle-fill",
+        "link":"https://www.softaculous.com/"
+    },
+    {
+        "id": 10,
+        "title": "M.Sc (Data Science)",
+        "x": "55%",
+        "y": "47%",
+        "details": "At Softaculous, I continued refining my coding skills and gaining practical experience in software development, backend logic, and database management. However, as I worked on various projects, I realized the growing importance of data-driven decision-making and wanted to deepen my understanding of data science. This curiosity led me to start preparing for the MSc entrance exam in Data Science specialization, alongside my full-time job. Balancing work and studies was challenging, but my passion for data analytics, machine learning, and problem-solving kept me motivated. After months of dedicated preparation, I successfully cleared the entrance test and enrolled in the program. I am grateful to Softaculous for recognizing my skills beyond formal degrees and for supporting my learning journey. Their encouragement allowed me to seamlessly manage both my professional responsibilities and academic growth, helping me take a significant step toward mastering data science.",
+        "titlex": "60%",
+        "titley": "45%",
+        "icon":"bi bi-clipboard-check-fill",
+        "link":"https://udcs.mu.ac.in/"
+    },
+    {
+        "id": 12,
+        "title": "Softcaulous",
+        "x": "55%",
+        "y": "15%",
+        "details": "During my time at Softaculous, I had the opportunity to work extensively with Virtualizor, a powerful VPS control panel that supports multiple virtualization technologies. This experience introduced me to hypervisors like KVM and Virtuozzo, where I learned how virtual machines are managed at the kernel level and how containerization optimizes resource allocation. I also explored Proxmox, gaining hands-on experience with open-source virtualization management. \n\nBeyond virtualization, I worked on backend development, where I often leveraged shell scripting to automate tasks, streamline server operations, and optimize system performance. Understanding Linux at a deeper level became essential as I navigated system configurations, managed networking setups, and fine-tuned server environments. My exposure to databases, server security, and automation scripts enhanced my ability to build scalable and efficient backend solutions. \n\n​To document my learning journey and contribute to the community, I authored technical blogs on Virtualizor's official platform, sharing insights on virtualization technologies, Linux commands, and backend optimizations. These articles not only reinforced my own understanding but also served as valuable resources for others exploring similar technologies. \n\nThis phase of my career significantly strengthened my grasp of virtualization, backend infrastructure, and system automation, pushing me to continuously learn and refine my skills in handling complex IT environments.",
+        "titlex": "59%",
+        "titley": "12%",
+        "icon":"bi bi-file-earmark-code-fill",
+        "link":"https://www.virtualizor.com/"
+    },
+    {
+        "id": 13,
+        "title": "Data Science",
+        "modalTitle": "Journey into Software Development",
+        "x": "65%",
+        "y": "15%",
+        "details": "As I approach the completion of my MSc in Data Science at Mumbai University, with only one semester remaining, I have engaged deeply with advanced topics such as machine learning, artificial intelligence, and data analytics. The curriculum has provided a solid foundation in essential technologies, data visualization, and statistical methods, equipping me with the skills to tackle complex data challenges. This academic journey has not only enhanced my technical proficiency but also reinforced the importance of continuous learning and adaptability in the ever-evolving field of data science.",
+        "titlex": "65%",
+        "titley": "20%",
+        "icon":"bi bi-mortarboard"
+    },
+    {
+        "id": 14,
+        "title": "Data Visualization",
+        "x": "65%",
+        "y": "35%",
+        "details": "During my Advanced Data Science studies, I integrated data visualization tools such as Power BI and Tableau into my machine learning and AI projects. This integration allowed for the creation of interactive dashboards that effectively communicated complex data insights. To share my work with the broader community, I uploaded these projects to GitHub, providing detailed documentation and visualizations to assist others in understanding and replicating the analyses. This approach not only showcased my proficiency in applying visualization tools to enhance data storytelling but also contributed valuable resources for fellow data enthusiasts.",
+        "titlex": "65%",
+        "titley": "40%",
+        "icon":"bi bi-graph-up"
+    },
+    {
+        "id": 15,
+        "title": "Data Engineering Exploration",
+        "x": "85%",
+        "y": "35%",
+        "details": "In my exploration of data engineering, I have immersed myself in the Hadoop ecosystem, focusing on technologies such as Hadoop, HBase, and Hive. This journey has equipped me with the skills to manage and process large-scale data efficiently. I began by understanding Apache Hadoop, an open-source framework that facilitates the distributed storage and processing of massive datasets. Mastering the Hadoop Distributed File System (HDFS) has been crucial in ensuring scalable and fault-tolerant data storage solutions. To perform data analysis, I utilized Apache Hive, which offers a SQL-like interface for querying and managing large datasets stored in Hadoop. This experience allowed me to write efficient queries, optimize data retrieval, and understand the intricacies of data warehousing within the Hadoop ecosystem. I also delved into Apache HBase, a NoSQL database designed for real-time read/write access to large datasets. This exploration enhanced my ability to handle unstructured data and implement low-latency data operations, complementing my knowledge of batch processing with Hadoop. To present data insights effectively",
+        "titlex": "85%",
+        "titley": "40%", 
+        "icon": "bi bi-database-exclamation"
+    },
+    {
+        "id": 16,
+        "title": "Community Engagement and Blogging",
+        "x": "85%",
+        "y": "55%",
+        "details": "I am actively working towards engaging with the tech community and sharing knowledge through blogging. My goal is to contribute to forums, write insightful articles, and create tutorials that document my learning experiences. By doing so, I aim to build meaningful connections, exchange ideas, and contribute to collective growth in the IT field. Blogging will serve as a platform for me to reinforce my understanding while helping others explore new technologies. I am gradually dedicating my free time to this effort, hoping to create a collaborative space where continuous learning and innovation thrive.",
+        "titlex": "85%",
+        "titley": "60%",
+        "icon": "bi bi-pencil-square"
+    },
+    {
+        "id": 17,
+        "title": "Leadership in Tech Initiatives",
+        "x": "72%",
+        "y": "55%",
+        "details": "I am planning to take on leadership roles in tech initiatives, focusing on guiding projects, mentoring peers, and driving innovation. One of my key goals is to participate in and lead hackathons, where I can collaborate with like-minded individuals, tackle real-world problems, and develop innovative solutions under time constraints. I aim to contribute to open-source projects, organize knowledge-sharing sessions, and refine my ability to make strategic technical decisions. Additionally, I want to enhance my communication and management skills to bridge the gap between technical execution and business objectives. As I continue to grow in my career, I am preparing myself to take on more responsibilities in shaping and driving technology-driven initiatives",
+        "titlex": "72%",
+        "titley": "60%",
+        "icon":"bi bi-people-fill"
+    },
+    {
+        "id": 18,
+        "title": "",
+        "x": "72%",
+        "y": "75%",
+        "details": "",
+        "titlex": "72%",
+        "titley": "80%"
+    },
+    {
+        "id": 19,
+        "title": "Future Goals",
+        "x": "95%",
+        "y": "75%",
+        "details": "Aiming for a leadership role",
+        "titlex": "95%",
+        "titley": "80%",
+        "icon": "bi bi-globe-central-south-asia"
+    }
+]

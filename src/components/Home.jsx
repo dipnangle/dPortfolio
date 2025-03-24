@@ -91,7 +91,7 @@ function Home() {
                                 <br />
                                 <code className='ml-8 text-gray-800 dark:text-white'>role:</code> <code className='text-yellow-500 dark:text-yellow-300'>'Software Engineer'</code>,
                                 <br />
-                                <code className='ml-8 text-gray-800 dark:text-white'>skills:</code> <code className='text-yellow-500 dark:text-yellow-300 text-wrap'>['Python', 'React', 'Tailwind', <Link to='/skills'>'More...'</Link>]</code>,
+                                <code className='ml-8 text-gray-800 dark:text-white'>skills:</code> <code className='text-yellow-500 dark:text-yellow-300 text-wrap'>['Python', 'React', 'Tailwind', <Link className='text-blue-600' to='/skills'>'More...'</Link>]</code>,
                                 <br />
                                 <code className='text-yellow-600 dark:text-yellow-400'>{`}`}</code>;
                             </pre>
