@@ -24,11 +24,11 @@
 }
 
 .navBar {
-	@apply dark:bg-[#080D19] bg-white py-4 lg:px-7 md:px-7 px-4 shadow-md z-10 border-black absolute dark:shadow-md dark:shadow-blue-900/80 w-full fixed top-0 left-0
+	@apply dark:bg-[#080D19] bg-white py-4 lg:px-7 md:px-7 px-4 shadow-md z-10 border-black dark:shadow-md dark:shadow-blue-900/80 w-full fixed top-0 left-0
 }
 
 .portFolio {
-	@apply font-normal text-3xl leading-6 text-gray-800 dark:text-white font-kaushan
+	@apply font-normal md:text-3xl lg:text-3xl leading-6 text-gray-800 dark:text-white font-kaushan text-2xl
 }
 
 .toggleSwitch {

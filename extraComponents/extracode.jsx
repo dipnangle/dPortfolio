@@ -222,7 +222,7 @@ line code
 // 	className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
 // />
 
-circle code 
+circle code
 
 {/* <motion.circle
 	cx={station.x} cy={station.y} r={selectedStation?.id === station.id ? "20" : "18"}
@@ -257,26 +257,26 @@ background codes
 {/* <div className='absolute' style={{ left: "55%", top: "8%", width:"50px"}}>
 	<img src={train} alt="Animation" />
 </div> */}
-{/* start kind of heartbeat css */}
-{/* <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-3xl animate-pulse"></div> */}
+{/* start kind of heartbeat css */ }
+{/* <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 blur-3xl animate-pulse"></div> */ }
 
 modal for mobile 
 
-{isModalOpen && (
-	<div className="fixed inset-0 flex items-end justify-center z-50 bg-black/50 backdrop-blur-md">
-	  <motion.div 
-		initial={{ y: "100%" }} 
-		animate={{ y: 0 }} 
-		exit={{ y: "100%" }} 
-		transition={{ duration: 0.3, ease: "easeInOut" }}
-		className="w-full bg-white dark:bg-gray-800 rounded-t-xl p-6 shadow-lg"
-	  >
-		<button onClick={closeModal} className="absolute top-4 right-4 text-gray-600 dark:text-gray-300">✖</button>
-		<h2 className="text-xl font-semibold text-gray-900 dark:text-white">Modal Title</h2>
-		<p className="mt-2 text-gray-600 dark:text-gray-300">Your modal content goes here...</p>
-	  </motion.div>
-	</div>
-  )}
+{ isModalOpen && (
+		<div className="fixed inset-0 flex items-end justify-center z-50 bg-black/50 backdrop-blur-md">
+			<motion.div
+				initial={{ y: "100%" }}
+				animate={{ y: 0 }}
+				exit={{ y: "100%" }}
+				transition={{ duration: 0.3, ease: "easeInOut" }}
+				className="w-full bg-white dark:bg-gray-800 rounded-t-xl p-6 shadow-lg"
+			>
+				<button onClick={closeModal} className="absolute top-4 right-4 text-gray-600 dark:text-gray-300">✖</button>
+				<h2 className="text-xl font-semibold text-gray-900 dark:text-white">Modal Title</h2>
+				<p className="mt-2 text-gray-600 dark:text-gray-300">Your modal content goes here...</p>
+			</motion.div>
+		</div>
+	)}
   
 
 tooltip extra code
@@ -428,3 +428,100 @@ const Mob = () => {
 };
 
 export default Mob;
+
+
+
+// cmob code
+const totalPoints = 10;
+const segmentHeight = 100; // Each segment's height in vh
+const { scrollYProgress } = useScroll();
+
+const lines = [];
+const blue_lines = [];
+const circlePoints = [];
+const blueCircles = [];
+
+for (let i = 0; i < totalPoints; i++) {
+	let yStart = i * segmentHeight;
+	let yEnd = (i + 1) * segmentHeight;
+
+	let xPosition = i % 2 === 0 ? "10%" : "90%";
+	let nextXPosition = i % 2 === 0 ? "90%" : "10%";
+
+	// **Gray Path (Static)**
+	lines.push({ x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh` });
+
+	// **Blue Path (Scrolling Effect)**
+	let startProgress = i / totalPoints;
+	let endProgress = (i + 1) / totalPoints;
+
+	// **Vertical Line Animation**
+	let pathProgressV = useTransform(scrollYProgress, [startProgress, endProgress], [0, 1]);
+
+	blue_lines.push({
+		x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh`, progress: pathProgressV
+	});
+
+	// **Add Stations (Black Circles)**
+	circlePoints.push({ x: xPosition, y: `${yStart + 50}vh` });
+
+	// **Horizontal Line Starts AFTER Vertical Completes (100%)**
+	if (i < totalPoints - 1) {
+		lines.push({ x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh` });
+
+		let pathProgressH = useTransform(pathProgressV, [1, 1], [0, 1]); // **Changed from 80% to 100%**
+
+		blue_lines.push({
+			x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh`, progress: pathProgressH
+		});
+	}
+}
+
+<div>
+	<motion.svg className="absolute top-0 h-full">
+		{/* Static Gray Path */}
+		{lines.map((line, index) => (
+			<motion.line
+				key={index}
+				x1={line.x1}
+				y1={line.y1}
+				x2={line.x2}
+				y2={line.y2}
+				stroke="#575757"
+				strokeWidth="3"
+				strokeLinecap="square"
+			/>
+		))}
+
+		{blue_lines.map((line, index) => (
+			<motion.line
+				key={index}
+				x1={line.x1}
+				y1={line.y1}
+				x2={line.x2}
+				y2={line.y2}
+				stroke="#2735ff"
+				strokeWidth="3"
+				strokeLinecap="round"
+				initial={{ opacity: 0, pathLength: 0 }}
+				style={{ pathLength: line.progress, opacity: (line.y1 == line.y2 ? 0 : 1) }}
+				// style={{ pathLength: line.progress, opacity: (line.y1 <= line.y2 ? 0 : 1)}}
+				transition={{ duration: 0.2 }}
+			/>
+		))}
+
+		{/* Station Points (Black) */}
+		{circlePoints.map((station, index) => (
+			<motion.circle
+				key={index}
+				cx={station.x}
+				cy={station.y}
+				r={"12"}
+				whileHover={{ scale: 1.2 }}
+				whileTap={{ scale: 0.8 }}
+				className={"fill-[#000]"}
+				transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+			/>
+		))}
+	</motion.svg>
+</div>

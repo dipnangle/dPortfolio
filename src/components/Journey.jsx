@@ -8,7 +8,9 @@ const Journey = () => {
             <div className="w-full h-screen hidden justify-center items-center md:flex lg:flex overflow-hidden">
                 <MetroJourney2 />
             </div>
-            <Mob/>
+            <div className="flex justify-center items-center md:hidden lg:hidden overflow-hidden">
+                <Mob/>
+            </div>
         </>
     );
 };
