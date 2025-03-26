@@ -324,3 +324,107 @@ tooltip extra code
 //         <div className={`absolute ${arrowPositionClasses[position]} w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 border-r border-b border-white/10`}></div>
 //     </div>
 // </div>
+
+
+// Mob for follow path code
+
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const Mob = () => {
+	const totalPoints = 10;
+	const segmentHeight = 100;
+	const { scrollYProgress } = useScroll();
+
+	const lines = [];
+	const blue_lines = [];
+	const circlePoints = [];
+
+	for (let i = 0; i < totalPoints; i++) {
+		let yStart = i * segmentHeight;
+		let yEnd = (i + 1) * segmentHeight;
+
+		let xPosition = i % 2 === 0 ? "33.33%" : "66.66%";
+		let nextXPosition = i % 2 === 0 ? "66.66%" : "33.33%";
+
+		// **Gray Path (Static)**
+		lines.push({ x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh` });
+
+		// **Blue Path (Scrolling Effect)**
+		let startProgress = i / totalPoints;
+		let endProgress = (i + 1) / totalPoints;
+
+		// **Vertical Line Animation**
+		let pathProgressV = useTransform(scrollYProgress, [startProgress, endProgress], [0, 1]);
+
+		blue_lines.push({
+			x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh`, progress: pathProgressV
+		});
+
+		// **Add Stations (Black Circles)**
+		circlePoints.push({ x: xPosition, y: `${yStart + 50}vh` });
+
+		// **Horizontal Line Starts AFTER Vertical Completes (100%)**
+		if (i < totalPoints - 1) {
+			lines.push({ x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh` });
+
+			let pathProgressH = useTransform(pathProgressV, [1, 1], [0, 1]); // **Changed from 80% to 100%**
+
+			blue_lines.push({
+				x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh`, progress: pathProgressH
+			});
+		}
+	}
+
+	return (
+		<div className="relative w-full h-[1000vh] bg-sky-50/90 dark:bg-[#060d1e] flex items-center justify-center">
+			<motion.svg className="absolute top-0 left-0 w-full h-full">
+				{/* Static Gray Path */}
+				{lines.map((line, index) => (
+					<motion.line
+						key={index}
+						x1={line.x1}
+						y1={line.y1}
+						x2={line.x2}
+						y2={line.y2}
+						stroke="#575757"
+						strokeWidth="3"
+						strokeLinecap="butt" // **Removes unwanted dots**
+					/>
+				))}
+
+				{/* Animated Blue Path */}
+				{blue_lines.map((line, index) => (
+					<motion.line
+						key={index}
+						x1={line.x1}
+						y1={line.y1}
+						x2={line.x2}
+						y2={line.y2}
+						stroke={"#2735ff"}
+						strokeWidth="3"
+						strokeLinecap="butt" // **Removes unwanted dots**
+						initial={{ pathLength: 0 }}
+						style={{ pathLength: line.progress }}
+						transition={{ duration: 0.3 }}
+					/>
+				))}
+
+				{/* Station Points */}
+				{circlePoints.map((station, index) => (
+					<motion.circle
+						key={index}
+						cx={station.x}
+						cy={station.y}
+						r={"16"}
+						whileHover={{ scale: 1.3 }}
+						className={"fill-[#000]"}
+						transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+					/>
+				))}
+			</motion.svg>
+		</div>
+	);
+};
+
+export default Mob;

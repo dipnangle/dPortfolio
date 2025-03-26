@@ -1,74 +1,223 @@
-import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const timelineData = [
-    { title: "Graduated in Engineering", details: "Completed Mechanical Engineering with a strong foundation.", icon: "bi bi-mortarboard-fill" },
-    { title: "First Job in Mechanical Field", details: "Worked for 2.5 years in mechanical engineering, gaining industrial experience.", icon: "bi bi-briefcase-fill" },
-    { title: "Transition to Web Development", details: "Started learning and working on web technologies like HTML, CSS, JS.", icon: "bi bi-code-slash" },
-    { title: "Joined Softaculous", details: "Began working on Virtualizor, enhancing backend & frontend skills.", icon: "bi bi-laptop" },
-    { title: "Started Master's in Data Science", details: "Pursuing further studies to deepen expertise in AI & Machine Learning.", icon: "bi bi-bar-chart-fill" }
-];
+const Mob = () => {
+	const totalPoints = 10;
+	const segmentHeight = 100; // Each segment's height in vh
+	const { scrollYProgress } = useScroll();
 
-export default function Mob() {
-    const containerRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [parallaxOffset, setParallaxOffset] = useState(0);
+	const lines = [];
+	const blue_lines = [];
+	const circlePoints = [];
+	const blueCircles = [];
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (containerRef.current) {
-                const scrollY = window.scrollY;
-                const sectionHeight = window.innerHeight;
-                const newIndex = Math.min(
-                    Math.max(Math.floor(scrollY / sectionHeight), 0),
-                    timelineData.length - 1
-                );
-                setActiveIndex(newIndex);
-                setScrollProgress(scrollY / (sectionHeight * (timelineData.length - 1)));
-                setParallaxOffset(scrollY * 0.3);
-            }
-        };
+	for (let i = 0; i < totalPoints; i++) {
+		let yStart = i * segmentHeight;
+		let yEnd = (i + 1) * segmentHeight;
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+		// Alternate line positions (Left or Right)
+		let xPosition = i % 2 === 0 ? "33.33%" : "66.66%";
+		let nextXPosition = i % 2 === 0 ? "66.66%" : "33.33%";
 
-    return (
-        <div ref={containerRef} className="relative flex flex-col items-center w-full h-[100vh*10] overflow-y-auto">
-            {/* SVG Curved Path for Timeline */}
-            <svg className="absolute left-1/3 w-1 h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M50,0 C50,25 50,75 50,100" stroke="gray" strokeWidth="4" fill="none" className="transition-all duration-500" 
-                    style={{ stroke: scrollProgress > 0 ? "blue" : "gray" }} />
-            </svg>
+		// **Static Gray Path**
+		lines.push({ x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh` });
 
-            {/* Timeline Items */}
-            {timelineData.map((item, index) => (
-                <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={activeIndex === index ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full flex items-center justify-center h-screen relative"
-                >
-                    {/* Milestone Dot & Icon */}
-                    <div className="absolute left-1/3 transform -translate-x-1/2 flex flex-col items-center">
-                        <div className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded-full shadow-lg">
-                            <i className={item.icon}></i>
-                        </div>
-                    </div>
-                    
-                    {/* Title & Details */}
-                    <motion.div 
-                        className="w-full max-w-md flex items-center justify-between px-4"
-                        style={{ transform: `translateY(${parallaxOffset * -0.1}px)` }}
-                    >
-                        <div className="w-1/3 text-right pr-5 font-bold text-lg text-blue-600 dark:text-white">{item.title}</div>
-                        <div className="w-2/3 pl-4 text-base text-gray-700 dark:text-gray-300">{item.details}</div>
-                    </motion.div>
-                </motion.div>
-            ))}
-        </div>
-    );
-}
+		// **Step 1: Vertical Line Animation**
+		let pathProgressV = useTransform(scrollYProgress, [i / totalPoints, (i + 1) / totalPoints], [0, 1]);
+
+		blue_lines.push({
+			x1: xPosition,
+			y1: `${yStart}vh`,
+			x2: xPosition,
+			y2: `${yEnd}vh`,
+			progress: pathProgressV,
+		});
+
+		// **Add station circles (black)**
+		circlePoints.push({ x: xPosition, y: `${yStart + 50}vh` });
+
+		// **Blue Circle at the End of Vertical Line**
+		blueCircles.push({ x: xPosition, y: `${yEnd}vh`, progress: pathProgressV });
+
+		// **Step 2: Horizontal Line Starts After Vertical**
+		if (i < totalPoints - 1) {
+			lines.push({ x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh` });
+
+			// Delay horizontal animation until vertical is mostly complete
+			let pathProgressH = useTransform(pathProgressV, [0.99, 1], [0, 1]);
+
+			blue_lines.push({
+				x1: xPosition,
+				y1: `${yEnd}vh`,
+				x2: nextXPosition,
+				y2: `${yEnd}vh`,
+				progress: pathProgressH,
+			});
+
+			// **Blue Circle at the End of Horizontal Line**
+			blueCircles.push({ x: nextXPosition, y: `${yEnd}vh`, progress: pathProgressH });
+		}
+	}
+
+	return (
+		<div className="relative w-full h-[1000vh] bg-sky-50/90 dark:bg-[#060d1e] flex items-center justify-center">
+			<motion.svg className="absolute top-0 h-full">
+				{/* Static Gray Path */}
+				{lines.map((line, index) => (
+					<motion.line
+						key={index}
+						x1={line.x1}
+						y1={line.y1}
+						x2={line.x2}
+						y2={line.y2}
+						stroke="#575757"
+						strokeWidth="3"
+						strokeLinecap="round"
+					/>
+				))}
+
+				{/* Animated Blue Path (Follows Scroll) */}
+				{blue_lines.map((line, index) => (
+					<motion.line
+						key={index}
+						x1={line.x1}
+						y1={line.y1}
+						x2={line.x2}
+						y2={line.y2}
+						stroke="#2735ff"
+						strokeWidth="3"
+						strokeLinecap="round"
+						initial={{ pathLength: 0 }}
+						style={{ pathLength: line.progress }}
+						transition={{ duration: 0.4 }}
+					/>
+				))}
+
+				{/* Station Points (Black) */}
+				{circlePoints.map((station, index) => (
+					<motion.circle
+						key={index}
+						cx={station.x}
+						cy={station.y}
+						r={"10"}
+						whileHover={{ scale: 1.3 }}
+						className={"fill-[#000]"}
+						transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+					/>
+				))}
+			</motion.svg>
+		</div>
+		
+	);
+};
+
+export default Mob;
+
+
+// import React from "react";
+// import { motion, useScroll, useTransform } from "framer-motion";
+
+// const Mob = () => {
+//     const totalPoints = 10;
+//     const segmentHeight = 100; // Each segment's height in vh
+//     const { scrollYProgress } = useScroll();
+
+//     const lines = [];
+//     const blue_lines = [];
+//     let movingCircle = { x: "33.33%", y: "0vh", progress: useTransform(scrollYProgress, [0, 1], [0, 1]) };
+
+//     for (let i = 0; i < totalPoints; i++) {
+//         let yStart = i * segmentHeight;
+//         let yEnd = (i + 1) * segmentHeight;
+
+//         // Alternate line positions (Left or Right)
+//         let xPosition = i % 2 === 0 ? "33.33%" : "66.66%";
+//         let nextXPosition = i % 2 === 0 ? "66.66%" : "33.33%";
+
+//         // **Static Gray Path**
+//         lines.push({ x1: xPosition, y1: `${yStart}vh`, x2: xPosition, y2: `${yEnd}vh` });
+
+//         // **Step 1: Vertical Line Animation**
+//         let pathProgressV = useTransform(scrollYProgress, [i / totalPoints, (i + 1) / totalPoints], [0, 1]);
+
+//         blue_lines.push({
+//             x1: xPosition,
+//             y1: `${yStart}vh`,
+//             x2: xPosition,
+//             y2: `${yEnd}vh`,
+//             progress: pathProgressV,
+//         });
+
+//         // Update moving circle position (for vertical line)
+//         if (i === totalPoints - 1) {
+//             movingCircle = { x: xPosition, y: `${yEnd}vh`, progress: pathProgressV };
+//         }
+
+//         // **Step 2: Horizontal Line Starts After Vertical**
+//         if (i < totalPoints - 1) {
+//             lines.push({ x1: xPosition, y1: `${yEnd}vh`, x2: nextXPosition, y2: `${yEnd}vh` });
+
+//             // Delay horizontal animation until vertical is mostly complete
+//             let pathProgressH = useTransform(pathProgressV, [0.99, 1], [0, 1]);
+
+//             blue_lines.push({
+//                 x1: xPosition,
+//                 y1: `${yEnd}vh`,
+//                 x2: nextXPosition,
+//                 y2: `${yEnd}vh`,
+//                 progress: pathProgressH,
+//             });
+
+//             // Update moving circle position (for horizontal line)
+//             movingCircle = { x: nextXPosition, y: `${yEnd}vh`, progress: pathProgressH };
+//         }
+//     }
+
+//     return (
+//         <div className="relative w-full h-[1000vh] bg-sky-50/90 dark:bg-[#060d1e] flex items-center justify-center">
+//             <motion.svg className="absolute top-0 h-full">
+//                 {/* Static Gray Path */}
+//                 {lines.map((line, index) => (
+//                     <motion.line
+//                         key={index}
+//                         x1={line.x1}
+//                         y1={line.y1}
+//                         x2={line.x2}
+//                         y2={line.y2}
+//                         stroke="#575757"
+//                         strokeWidth="3"
+//                         strokeLinecap="round"
+//                     />
+//                 ))}
+
+//                 {/* Animated Blue Path (Follows Scroll) */}
+//                 {blue_lines.map((line, index) => (
+//                     <motion.line
+//                         key={index}
+//                         x1={line.x1}
+//                         y1={line.y1}
+//                         x2={line.x2}
+//                         y2={line.y2}
+//                         stroke="#2735ff"
+//                         strokeWidth="3"
+//                         strokeLinecap="round"
+//                         initial={{ pathLength: 0 }}
+//                         style={{ pathLength: line.progress }}
+//                         transition={{ duration: 0.4 }}
+//                     />
+//                 ))}
+
+//                 {/* Moving Blue Circle at Path End */}
+//                 <motion.circle
+//                     cx={movingCircle.x}
+//                     cy={movingCircle.y}
+//                     r={"7"}
+//                     className={"fill-[#2735ff]"}
+//                     style={{ scale: movingCircle.progress }}
+//                 />
+//             </motion.svg>
+//         </div>
+//     );
+// };
+
+// export default Mob;
