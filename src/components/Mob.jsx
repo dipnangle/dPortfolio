@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform, animate, useAnimation, useMotionTemplate, useScroll } from "framer-motion";
 import { none } from "@tsparticles/engine";
+import coder from '../assets/coder.png';
+import { code } from "framer-motion/client";
 
 const Mob = () => {
     const [showDiv, setShowDiv] = useState(false);
@@ -26,13 +28,29 @@ const Mob = () => {
 
     }, [])
 
-    const totalPoints = 10;
-    const segmentHeight = 100;
+    // const timelineData = [
+    //     { id: 1, title: "Event 1", description: "This is the first event.", date: "Jan 2020" },
+    //     { id: 2, title: "Event 2", description: "Something happened here.", date: "Mar 2020" },
+    //     { id: 3, title: "Event 3", description: "Another major event.", date: "Jul 2020" },
+    //     { id: 4, title: "Event 4", description: "The final event.", date: "Dec 2020" },
+    // ];
+
+    const ref = useRef(null);
+    // const { scrollYProgress } = useScroll({
+    //     target: ref,
+    //     offset: ["start end", "end start"],
+    // });
+
     const { scrollYProgress } = useScroll();
+    const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+    const totalPoints = 10;
+    const segmentHeight = 100; // Each segment's height in vh
 
     const lines = [];
     const blue_lines = [];
     const circlePoints = [];
+    const blueCircles = [];
 
     for (let i = 0; i < totalPoints; i++) {
         let yStart = i * segmentHeight;
@@ -82,60 +100,95 @@ const Mob = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.2 }}
                 >
-                    🎉 Animation Complete! This div is now visible.
-
-                    <div className="relative w-full h-[1000vh] bg-sky-50/90 dark:bg-[#060d1e] flex items-center justify-center">
-                        <motion.svg className="absolute top-0 left-0 w-full h-full">
-                            {/* Static Gray Path */}
-                            {lines.map((line, index) => (
-                                <motion.line
-                                    key={index}
-                                    x1={line.x1}
-                                    y1={line.y1}
-                                    x2={line.x2}
-                                    y2={line.y2}
-                                    stroke="#575757"
-                                    strokeWidth="3"
-                                    strokeLinecap="butt" // **Removes unwanted dots**
-                                />
-                            ))}
-
-                            {/* Animated Blue Path */}
-
-                            {blue_lines.map((line, index) => (
-                                <motion.line
-                                    key={index}
-                                    x1={line.x1}
-                                    y1={line.y1}
-                                    x2={line.x2}
-                                    y2={line.y2}
-                                    stroke="#2735ff"
-                                    strokeWidth="3"
-                                    strokeLinecap="round"
-                                    initial={{ opacity: 0, pathLength: 0 }}
-                                    style={{ pathLength: line.progress, opacity: 1}}
-                                    // style={{ pathLength: line.progress, opacity: (line.y1 <= line.y2 ? 0 : 1)}}
-                                    transition={{ duration: 0.1 }}
-                                />
-                            ))}
-
-                            {/* Station Points */}
-                            {circlePoints.map((station, index) => (
-                                <motion.circle
-                                    key={index}
-                                    cx={station.x}
-                                    cy={station.y}
-                                    r={"16"}
-                                    whileHover={{ scale: 1.3 }}
-                                    className={"fill-[#000]"}
-                                    transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                                />
-                            ))}
-                        </motion.svg>
+                    <div className="relative w-full h-full bg-sky-50/90 dark:bg-[#060d1e] flex items-start pt-28 justify-center dark:text-white">
+                        <div className="flex flex-col justify-center items-start">
+                            <div className="w-52 h-52 relative flex items-center justify-center">
+                                {/* Animated Circle */}
+                                <svg className="w-full h-full absolute" viewBox="0 0 100 100">
+                                    <motion.circle
+                                        cx="50"
+                                        cy="50"
+                                        r="48" // Ensure it fits within the viewBox
+                                        stroke="blue"
+                                        strokeWidth="3"
+                                        fill="transparent"
+                                        strokeDasharray="301.6" // Correct circumference (2 * π * 45)
+                                        strokeDashoffset="301.6"
+                                        animate={{ strokeDashoffset: 0 }}
+                                        transition={{ duration: 1, ease: "easeInOut" }}
+                                    />
+                                </svg>
+                                {/* Centered Image */}
+                                <img src={coder} alt="boy_coding" className="w-full h-full object-cover absolute" />
+                            </div>
+                        </div>
                     </div>
-
+                    <div className="relative flex flex-col items-center w-full h-[100vh]">\
+                        <svg className="absolute w-full h-full">
+                            <motion.line
+                                x1="50%"
+                                y1="0vh"
+                                x2="50%"
+                                y2="30vh"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
+                            />
+                            <motion.line
+                                x1="50%"
+                                y1="30vh"
+                                x2="20%"
+                                y2="30vh"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+                            />
+                            <motion.line
+                                x1="50%"
+                                y1="30vh"
+                                x2="80%"
+                                y2="30vh"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+                            />
+                            <motion.line
+                                x1="80%"
+                                y1="30vh"
+                                x2="80%"
+                                y2="80vh"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+                            />
+                            <motion.line
+                                x1="20%"
+                                y1="30vh"
+                                x2="20%"
+                                y2="80vh"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeLinecap="square"
+                                initial={{ pathLength: 0 }}
+                                animate={{ pathLength: 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+                            />
+                        </svg>
+                    </div>
                 </motion.div>
             }
 
@@ -144,3 +197,8 @@ const Mob = () => {
 };
 
 export default Mob;
+
+// const progressIcon: React.CSSProperties = {
+//     transform: "translateX(-100px) rotate(-90deg)",
+//     stroke: "#ff0088",
+// }
