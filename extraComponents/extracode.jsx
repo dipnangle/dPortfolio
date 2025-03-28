@@ -529,3 +529,274 @@ for (let i = 0; i < totalPoints; i++) {
 
 
 
+
+// motion places
+<svg>
+<motion.line
+	x1="50%"
+	y1="0vh"
+	x2="50%"
+	y2="30vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="50%"
+	y1="30vh"
+	x2="10%"
+	y2="30vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
+/>
+<motion.line
+	x1="50%"
+	y1="30vh"
+	x2="90%"
+	y2="30vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="10%"
+	y1="30vh"
+	x2="10%"
+	y2="40vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="10%"
+	y1="40vh"
+	x2="50%"
+	y2="40vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="90%"
+	y1="40vh"
+	x2="50%"
+	y2="40vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="90%"
+	y1="30vh"
+	x2="90%"
+	y2="40vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="50%"
+	y1="40vh"
+	x2="50%"
+	y2="60vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="50%"
+	y1="60vh"
+	x2="10%"
+	y2="60vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="10%"
+	y1="60vh"
+	x2="10%"
+	y2="80vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="10%"
+	y1="80vh"
+	x2="90%"
+	y2="80vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="90%"
+	y1="80vh"
+	x2="90%"
+	y2="100vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="90%"
+	y1="100vh"
+	x2="10%"
+	y2="100vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="10%"
+	y1="100vh"
+	x2="10%"
+	y2="115vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 1, ease: "easeInOut" }}
+/>
+<motion.line
+	x1="10%"
+	y1="115vh"
+	x2="50%"
+	y2="115vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="50%"
+	y1="115vh"
+	x2="50%"
+	y2="125vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="50%"
+	y1="125vh"
+	x2="10%"
+	y2="125vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
+/>
+{/* 3 */ }
+<motion.line
+	x1="50%"
+	y1="125vh"
+	x2="90%"
+	y2="125vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="10%"
+	y1="125vh"
+	x2="10%"
+	y2="175vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
+/>
+<motion.line
+	x1="90%"
+	y1="125vh"
+	x2="90%"
+	y2="175vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+<motion.line
+	x1="50%"
+	y1="125vh"
+	x2="10%"
+	y2="125vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
+/>
+{/* 3 */ }
+<motion.line
+	x1="50%"
+	y1="125vh"
+	x2="90%"
+	y2="125vh"
+	stroke="white"
+	strokeWidth="4"
+	strokeLinecap="square"
+	initial={{ pathLength: 0 }}
+	animate={{ pathLength: 1 }}
+	transition={{ duration: 0.5, ease: "easeInOut", delay: 2 }}
+/>
+
+</svg>
