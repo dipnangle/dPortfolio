@@ -15,7 +15,7 @@ const Mob = () => {
 		const controls = animate(count, 100, { duration: 3 })
 		const unsubscribe = rounded.onChange((latest) => {
 			if (latest === 100) {
-				setTimeout(() => setIsVisible(false), 500); // Hide after 0.5s
+				setTimeout(() => setIsVisible(false), 10); // Hide after 0.5s
 			}
 		});
 
@@ -29,20 +29,20 @@ const Mob = () => {
 	const journeyPathDetails = [
 		{ id: 1, x1: "50%", y1: "0vh", x2: "50%", y2: "30vh", duration: 1, delay: 0 },
 		{ id: 2, x1: "50%", y1: "30vh", x2: "10%", y2: "30vh", duration: 0.5, delay: 1 },
-		{ id: 3, x1: "50%", y1: "30vh", x2: "90%", y2: "30vh", duration: 0.5, delay: 1.5 },
-		{ id: 4, x1: "10%", y1: "30vh", x2: "10%", y2: "40vh", duration: 1, delay: 0 },
-		{ id: 5, x1: "10%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
-		{ id: 6, x1: "90%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
-		{ id: 7, x1: "90%", y1: "30vh", x2: "90%", y2: "40vh", duration: 1, delay: 0 },
-		{ id: 8, x1: "50%", y1: "40vh", x2: "50%", y2: "60vh", duration: 1, delay: 0 },
-		{ id: 9, x1: "50%", y1: "60vh", x2: "10%", y2: "60vh", duration: 0.5, delay: 2 },
-		{ id: 10, x1: "10%", y1: "60vh", x2: "10%", y2: "80vh", duration: 1, delay: 0 },
-		{ id: 11, x1: "10%", y1: "80vh", x2: "90%", y2: "80vh", duration: 0.5, delay: 2 },
-		{ id: 12, x1: "90%", y1: "80vh", x2: "90%", y2: "100vh", duration: 1, delay: 0 },
-		{ id: 13, x1: "90%", y1: "100vh", x2: "10%", y2: "100vh", duration: 0.5, delay: 2 },
-		{ id: 14, x1: "10%", y1: "100vh", x2: "10%", y2: "115vh", duration: 1, delay: 0 },
-		{ id: 15, x1: "10%", y1: "115vh", x2: "50%", y2: "115vh", duration: 0.5, delay: 2 },
-		{ id: 16, x1: "50%", y1: "115vh", x2: "50%", y2: "125vh", duration: 0.5, delay: 2 },
+		{ id: 3, x1: "50%", y1: "30vh", x2: "90%", y2: "30vh", duration: 0.5, delay: 1 },
+		{ id: 4, x1: "10%", y1: "30vh", x2: "10%", y2: "40vh", duration: 0.5, delay: 1.5 },
+		{ id: 5, x1: "90%", y1: "30vh", x2: "90%", y2: "40vh", duration: 0.5, delay: 1.5 },
+		{ id: 6, x1: "10%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
+		{ id: 7, x1: "90%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
+		{ id: 8, x1: "50%", y1: "40vh", x2: "50%", y2: "60vh", duration: 0.5, delay: 2.5 },
+		{ id: 9, x1: "50%", y1: "60vh", x2: "10%", y2: "60vh", duration: 0.5, delay: 3 },
+		{ id: 10, x1: "10%", y1: "60vh", x2: "10%", y2: "80vh", duration: 0.5, delay: 3.5 },
+		{ id: 11, x1: "10%", y1: "80vh", x2: "90%", y2: "80vh", duration: 0.5, delay: 4 },
+		{ id: 12, x1: "90%", y1: "80vh", x2: "90%", y2: "100vh", duration: 0.5, delay: 4.5 },
+		{ id: 13, x1: "90%", y1: "100vh", x2: "10%", y2: "100vh", duration: 0.5, delay: 5 },
+		{ id: 14, x1: "10%", y1: "100vh", x2: "10%", y2: "115vh", duration: 0.5, delay: 5.5 },
+		{ id: 15, x1: "10%", y1: "115vh", x2: "50%", y2: "115vh", duration: 0.5, delay: 6 },
+		{ id: 16, x1: "50%", y1: "115vh", x2: "50%", y2: "125vh", duration: 0.5, delay: 6.5 },
 		{ id: 17, x1: "50%", y1: "125vh", x2: "10%", y2: "125vh", duration: 0.5, delay: 1 },
 		{ id: 18, x1: "50%", y1: "125vh", x2: "90%", y2: "125vh", duration: 0.5, delay: 2 },
 		{ id: 19, x1: "10%", y1: "125vh", x2: "10%", y2: "175vh", duration: 0.5, delay: 1 },
