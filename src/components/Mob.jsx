@@ -5,9 +5,7 @@ import codeGear from '../assets/codegear.gif';
 import { React } from './Inc'
 
 const Mob = () => {
-	const [showDiv, setShowDiv] = useState(false);
-	const controls = useAnimation();
-
+	
 	const count = useMotionValue(0)
 	const rounded = useTransform(() => Math.round(count.get()))
 	const percentageText = useMotionTemplate`${rounded}%`
@@ -31,7 +29,7 @@ const Mob = () => {
 	const journeyPathDetails = [
 		{ id: 1, x1: "50%", y1: "0vh", x2: "50%", y2: "30vh", duration: 1, delay: 0 },
 		{ id: 2, x1: "50%", y1: "30vh", x2: "10%", y2: "30vh", duration: 0.5, delay: 1 },
-		{ id: 3, x1: "50%", y1: "30vh", x2: "90%", y2: "30vh", duration: 0.5, delay: 2 },
+		{ id: 3, x1: "50%", y1: "30vh", x2: "90%", y2: "30vh", duration: 0.5, delay: 1.5 },
 		{ id: 4, x1: "10%", y1: "30vh", x2: "10%", y2: "40vh", duration: 1, delay: 0 },
 		{ id: 5, x1: "10%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
 		{ id: 6, x1: "90%", y1: "40vh", x2: "50%", y2: "40vh", duration: 0.5, delay: 2 },
@@ -70,6 +68,28 @@ const Mob = () => {
 		{ id: 39, x1: "25%", y1: "315vh", x2: "90%", y2: "315vh", duration: 0.5, delay: 2 },
 		{ id: 40, x1: "90%", y1: "315vh", x2: "90%", y2: "350vh", duration: 0.5, delay: 2 },
 		{ id: 41, x1: "90%", y1: "350vh", x2: "10%", y2: "350vh", duration: 0.5, delay: 2 },
+		{ id: 42, x1: "10%", y1: "350vh", x2: "10%", y2: "360vh", duration: 0.5, delay: 2 },
+		{ id: 43, x1: "10%", y1: "360vh", x2: "50%", y2: "360vh", duration: 0.5, delay: 2 },
+		{ id: 44, x1: "50%", y1: "360vh", x2: "50%", y2: "365vh", duration: 0.5, delay: 2 },
+		{ id: 45, x1: "50%", y1: "365vh", x2: "10%", y2: "365vh", duration: 0.5, delay: 2 },
+		{ id: 46, x1: "50%", y1: "365vh", x2: "90%", y2: "365vh", duration: 0.5, delay: 2 },
+		{ id: 47, x1: "10%", y1: "365vh", x2: "10%", y2: "400vh", duration: 0.5, delay: 2 },
+		{ id: 48, x1: "90%", y1: "365vh", x2: "90%", y2: "400vh", duration: 0.5, delay: 2 },
+		{ id: 49, x1: "10%", y1: "400vh", x2: "60%", y2: "400vh", duration: 0.5, delay: 2 },
+		{ id: 50, x1: "90%", y1: "400vh", x2: "60%", y2: "400vh", duration: 0.5, delay: 2 },
+		{ id: 51, x1: "60%", y1: "400vh", x2: "60%", y2: "415vh", duration: 0.5, delay: 2 },
+		{ id: 52, x1: "60%", y1: "415vh", x2: "10%", y2: "415vh", duration: 0.5, delay: 2 },
+		{ id: 53, x1: "10%", y1: "415vh", x2: "10%", y2: "430vh", duration: 0.5, delay: 2 },
+		{ id: 54, x1: "10%", y1: "430vh", x2: "90%", y2: "430vh", duration: 0.5, delay: 2 },
+		{ id: 55, x1: "90%", y1: "430vh", x2: "90%", y2: "450vh", duration: 0.5, delay: 2 },
+		{ id: 56, x1: "90%", y1: "450vh", x2: "10%", y2: "450vh", duration: 0.5, delay: 2 },
+		{ id: 57, x1: "10%", y1: "450vh", x2: "10%", y2: "470vh", duration: 0.5, delay: 2 },
+		{ id: 58, x1: "10%", y1: "470vh", x2: "90%", y2: "470vh", duration: 0.5, delay: 2 },
+		{ id: 59, x1: "90%", y1: "470vh", x2: "90%", y2: "485vh", duration: 0.5, delay: 2 },
+		{ id: 60, x1: "90%", y1: "470vh", x2: "90%", y2: "485vh", duration: 0.5, delay: 2 },
+		{ id: 61, x1: "90%", y1: "485vh", x2: "50%", y2: "485vh", duration: 0.5, delay: 2 },
+		{ id: 62, x1: "50%", y1: "485vh", x2: "50%", y2: "495vh", duration: 0.5, delay: 2 },
+		{ id: 63, x1: "50%", y1: "495vh", duration: 0.5, delay: 2 , end: true },
 	];
 
 	return (
@@ -109,9 +129,15 @@ const Mob = () => {
 							</div>
 						</div>
 					</div>
-					<div className="relative flex flex-col items-center w-full h-[400vh]">
+					<div className="relative flex flex-col items-center w-full h-[500vh]">
 						<svg className="absolute w-full h-full">
 							{journeyPathDetails.map((line) => (
+								line.end ? <motion.circle
+									cx = {line.x1}
+									cy = {line.y1}
+									r = {"18"}
+									className={`fill-black dark:fill-white`}
+								/> :
 								<motion.line
 									key={line.id}
 									id={`line-${line.id}`}
@@ -128,7 +154,7 @@ const Mob = () => {
 								/>
 							))}
 						</svg>
-						<div className="absolute top-[31.5vh] text-xl text-center text-white">
+						<div className="absolute top-[31.5vh] text-xl text-center dark:text-white text-black">
 							Welcome To My Journey
 							<motion.span
 								animate={{ rotate: [0, 25, 0, -25, 0] }} // Natural waving motion
@@ -164,10 +190,6 @@ const Mob = () => {
 								VIT, Mumbai (2016-2019) | 7.31 CGPI
 							</div>
 						</div>
-						{/* <div className="absolute top-[117.5vh] flex items-end right-[9.3%] w-14">
-                            <svg className="dark:fill-white fill-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 246" xml:space="preserve"><g stroke-width="0"/><g stroke-linecap="round" stroke-linejoin="round"/><path d="M254 150.588v93.343H53.545v-31.916h64.591v-28.727h60.744v-32.7zM113.175 18.875c0 9.282 7.524 16.806 16.806 16.806s16.806-7.524 16.806-16.806-7.524-16.806-16.806-16.806-16.806 7.524-16.806 16.806m76.74 81.295c-1.62 3.746-6.074 5.264-9.82 3.543l-31.182-14.68c-1.822-.81-3.341-2.43-3.948-4.353L139.7 69.798l-7.289 36.463 24.593.506c5.264.101 9.415 4.556 9.314 9.82l-1.316 50.999c-.101 5.264-4.454 9.415-9.618 9.415h-.203c-5.366-.101-9.516-4.556-9.415-9.82l1.114-41.483-30.668-.709-7.087 35.113c-.304 1.417-.911 2.936-1.721 4.151L81.18 201.974c-3.341 4.859-9.82 5.872-14.68 2.531-4.758-3.341-5.872-9.82-2.43-14.579l24.908-35.494 15.963-90.455-31.758 29.328a7.2 7.2 0 0 1-1.823 1.224l2.972 2.972-8.68 8.68 14.466 14.466-11.573 11.573-46.292-46.293 11.573-11.573L48.292 88.82l8.68-8.68 4.843 4.842a7.2 7.2 0 0 1 1.553-2.164l39.78-37.769c5.25-4.518 13.672-7.244 20.962-6.029l6.884 1.316c9.213 1.62 16.299 7.897 19.236 16.097l7.492 20.552 28.448 13.364c3.745 1.621 5.365 6.075 3.745 9.821M67.099 97.501 56.972 87.374l-5.063 5.063 10.127 10.127zm-10.127 28.932-2.893 2.893-5.786-5.787 2.893-2.893-17.36-17.36-2.893 2.893-5.787-5.787 2.893-2.893-8.68-8.68L2 106.18l46.293 46.293 17.36-17.36z"/></svg>
-                        </div> */}
-
 						<svg
 							className="absolute right-[10%] w-12 top-[125vh] translate-y-[-100%] dark:fill-white fill-black"
 							xmlns="http://www.w3.org/2000/svg"
@@ -178,7 +200,6 @@ const Mob = () => {
 							<g strokeLinecap="round" strokeLinejoin="round" />
 							<path d="M254 150.588v93.343H53.545v-31.916h64.591v-28.727h60.744v-32.7zM113.175 18.875c0 9.282 7.524 16.806 16.806 16.806s16.806-7.524 16.806-16.806-7.524-16.806-16.806-16.806-16.806 7.524-16.806 16.806m76.74 81.295c-1.62 3.746-6.074 5.264-9.82 3.543l-31.182-14.68c-1.822-.81-3.341-2.43-3.948-4.353L139.7 69.798l-7.289 36.463 24.593.506c5.264.101 9.415 4.556 9.314 9.82l-1.316 50.999c-.101 5.264-4.454 9.415-9.618 9.415h-.203c-5.366-.101-9.516-4.556-9.415-9.82l1.114-41.483-30.668-.709-7.087 35.113c-.304 1.417-.911 2.936-1.721 4.151L81.18 201.974c-3.341 4.859-9.82 5.872-14.68 2.531-4.758-3.341-5.872-9.82-2.43-14.579l24.908-35.494 15.963-90.455-31.758 29.328a7.2 7.2 0 0 1-1.823 1.224l2.972 2.972-8.68 8.68 14.466 14.466-11.573 11.573-46.292-46.293 11.573-11.573L48.292 88.82l8.68-8.68 4.843 4.842a7.2 7.2 0 0 1 1.553-2.164l39.78-37.769c5.25-4.518 13.672-7.244 20.962-6.029l6.884 1.316c9.213 1.62 16.299 7.897 19.236 16.097l7.492 20.552 28.448 13.364c3.745 1.621 5.365 6.075 3.745 9.821M67.099 97.501 56.972 87.374l-5.063 5.063 10.127 10.127zm-10.127 28.932-2.893 2.893-5.786-5.787 2.893-2.893-17.36-17.36-2.893 2.893-5.787-5.787 2.893-2.893-8.68-8.68L2 106.18l46.293 46.293 17.36-17.36z" />
 						</svg>
-
 						<div>
 							<div className='absolute top-[125vh] left-[12%] text-lg dark:text-white'>
 								Design engineer
@@ -209,25 +230,33 @@ const Mob = () => {
 						<div className="absolute top-[150vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg dark:text-white">
 							<img src={codeGear} width="85" alt="Animation" />
 						</div>
-						<div className="absolute top-[190vh] left-[30%] flex items-center">
-							<i className="bi bi-file-earmark-code text-2xl dark:text-white translate-x-[-3rem]"></i>
-							<div className="dark:text-white translate-x-[0.5rem]">Coding Start</div>
+						<div className="absolute top-[190vh] left-[30%] flex dark:text-white items-center">
+							<i className="bi bi-file-earmark-code text-2xl translate-x-[-3rem]"></i>
+							<div className="translate-x-[0.5rem]">
+								Coding Start
+							</div>
 						</div>
 						<div className="absolute top-[200vh] left-[30%] dark:text-white text-2xl mt-1 translate-y-[-100%]">
 							<i class="bi bi-graph-up-arrow"></i>
+						</div>
+						<div className="absolute top-[206vh] right-[30%] flex items-center dark:text-white text-black">
+							backend and database
+							<div className="translate-x-[3rem]">
+								<i className='bi bi-filetype-py text-2xl'></i>
+							</div>
 						</div>
 						<div>
 							<div className='absolute top-[205vh] right-[20%] dark:text-white'>
 								<div className='flex items-center justify-center gap-6'>
 									<div className=''>
-										backend and database
+										
 									</div>
-									<i className='bi bi-filetype-py text-2xl'></i>
+									
 								</div>
 							</div>
 						</div>
 						<div className='absolute top-[227vh] text-center dark:text-white'>
-							Softaculous.ltd
+							Softaculous.ltd | <a href='https://www.softaculous.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							<hr className="border-gray-600"></hr>
 						</div>
 						<div className='absolute top-[231vh] justify-center flex text-justify w-2/3 text-gray-500 text-sm'>
@@ -236,7 +265,7 @@ const Mob = () => {
 						<div className='absolute top-[305vh] dark:text-white translate-y-[-50%] left-[12%] text-3xl'>
 							<i className='bi bi-mortarboard'></i>
 						</div>
-						<div className='absolute top-[305vh] dark:text-white translate-y-[-50%]'>
+						<div className='absolute top-[305vh] dark:text-white translate-y-[-50%] translate-x-[-1rem]'>
 							<span>
 								M.Sc <a className='text-sm text-blue-500' href='https://mu.ac.in/' target='_blank'>(Data Science)</a>
 								<hr className='broder-gray-500'></hr>
@@ -253,6 +282,42 @@ const Mob = () => {
 							<div className='text-sm text-gray-500 text-justify'>
 								At Softaculous, I worked with Virtualizor, gaining experience in KVM, Virtuozzo, and Proxmox while managing VMs. I optimized backend performance using shell scripting and deepened my Linux and networking skills. I also authored technical blogs, sharing insights on virtualization and automation.
 							</div>
+						</div>
+						<div className='absolute top-[365vh] w-2/3 dark:text-white translate-y-[7%]'>
+							<div className='text-center'>
+								M.Sc
+								<hr className='broder-gray-500'></hr>
+							</div>
+							<div className='text-sm text-gray-500 text-justify'>
+							As I near the completion of my MSc in Data Science at Mumbai University <span className='font-semibold'>(Last SEM Remaining)</span>, I have gained expertise in machine learning, AI, and data analytics, along with strong skills in data visualization and statistical methods. This journey has strengthened my technical proficiency and adaptability in the evolving field of data science.
+							</div>
+						</div>
+						<div className='absolute top-[415vh] left-[10%] dark:text-white transform translate-y-[-120%] translate-x-[10px]'>
+							Data Visualization
+						</div>
+						<div className='absolute top-[415vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[10px] text-left'>
+							Used Power BI & Tableau Dashboards, shared on GitHub
+						</div>
+						<div className='absolute top-[430vh] right-[10%] dark:text-white transform translate-y-[-120%] translate-x-[-10px]'>
+							Data Engineering Exploration
+						</div>
+						<div className='absolute top-[430vh] right-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[-10px] text-justify'>
+							Explored Hadoop, HBase & Hive for big data processing, optimizing queries & managing large-scale datasets.
+						</div>
+						<div className='absolute top-[450vh] left-[10%] dark:text-white transform translate-y-[-120%] translate-x-[10px]'>
+							Community Engagement and Blogging
+						</div>
+						<div className='absolute top-[450vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[10px] text-justify'>
+							Sharing tech insights via blogs & forums to foster learning and community engagement.
+						</div>
+						<div className='absolute top-[470vh] right-[10%] dark:text-white transform translate-y-[-120%] translate-x-[-10px]'>
+							Leadership in Tech Initiatives
+						</div>
+						<div className='absolute top-[470vh] right-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[-10px] text-justify'>
+							Aiming for leadership in tech, mentoring peers, leading hackathons, and driving innovation.
+						</div>
+						<div className='absolute top-[495vh] text-white dark:text-black text-xl transform translate-y-[-50%]'>
+							<i class="bi bi-globe-central-south-asia"></i>
 						</div>
 					</div>
 				</motion.div>
