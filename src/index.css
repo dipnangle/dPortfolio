@@ -145,6 +145,10 @@
 	@apply w-64 p-4 bg-white dark:bg-gray-800 text-sm dark:text-white text-black rounded-lg shadow-lg text-wrap cursor-pointer
 }
 
+.textColor{
+	@apply text-gray-800 dark:text-[#E3F6FF];
+}
+
 .bg-glass {
 	background: rgba(255, 255, 255, 0.1);
 	backdrop-filter: blur(10px);
