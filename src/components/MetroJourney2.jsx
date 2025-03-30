@@ -57,44 +57,31 @@ const MetroJourney2 = () => {
 		}
 	};
 
-	const [hoveredStationIndex, setHoveredStationIndex] = useState(null);
-	const timeoutRef = useRef(null);
-
-	const handleMouseEnter = (index) => {
-		if (timeoutRef.current) clearTimeout(timeoutRef.current);
-		console.log(index);
-		setHoveredStationIndex(index);
-	};
-
-	const handleMouseLeave = () => {
-		timeoutRef.current = setTimeout(() => {
-			setHoveredStationIndex(null);
-		}, 500);
-	};
-
 	return (
-		<div className="w-full h-screen max-h-screen mt-24 overflow-hidden flex justify-center overscroll-none transition-all duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(241,250,255,0.95)_10%,rgba(230,240,250,0.98)_40%,#F1FAFF_80%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(18,24,48,0.95)_10%,rgba(10,15,38,0.98)_40%,#060D1E_80%)] text-black dark:text-white relative">
-			<svg width="100%" height="100%" className="rounded-lg shadow-2xl overflow-hidden">
+		<div className='w-full h-screen max-h-screen mt-24 overflow-hidden flex justify-center overscroll-none transition-all duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(241,250,255,0.95)_10%,rgba(230,240,250,0.98)_40%,#F1FAFF_80%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(18,24,48,0.95)_10%,rgba(10,15,38,0.98)_40%,#060D1E_80%)] text-black dark:text-white relative'>
+			<svg width="100%" height="100%" className='rounded-lg shadow-2xl overflow-hidden'>
 				{journeyDetails.map((station, index) => {
 					if (index === 0) return null;
 					const prev = journeyDetails[index - 1];
 					return (
-						<g>
+						<g>	
+							{/* this is for glow effect for line */}
 							<motion.line
 								x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
 								strokeLinecap="round"
-								strokeWidth="6" // Slightly thicker
+								strokeWidth="6"
 								className={index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400 opacity-50' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7] opacity-50'}
-								filter="blur(1.5px)" // Blurred for glow effect
+								filter="blur(1.5px)"
 								initial={{ strokeDasharray: "100%", strokeDashoffset: "100%" }}
 								animate={{ strokeDashoffset: "0%" }}
 								transition={{ duration: 1.5, ease: "easeInOut" }}
 							/>
+
+							{/* actual line which is drawn */}
 							<motion.line
 								key={station.id}
 								x1={prev.x} y1={prev.y} x2={station.x} y2={station.y}
 								strokeLinecap="round"
-								// className={`stroke-[4px] ${index <= reachedStationIndex ? 'stroke-[#00F8C4] dark:stroke-green-400' : 'stroke-[#7C65F7] dark:stroke-[#7A62F7]'}`}
 								className={`stroke-[4px] shadow-[0_0_10px_rgba(34,197,94,0.7)] ${index <= reachedStationIndex ? 'stroke-[#1D7A42] dark:stroke-[#2ba35b]' : 'stroke-[#6B7BBA] dark:stroke-[#344bae]'}`}
 								initial={{ strokeDasharray: "100%", strokeDashoffset: "100%" }}
 								animate={{ strokeDashoffset: "0%" }}
@@ -117,8 +104,6 @@ const MetroJourney2 = () => {
 							cy={station.y}
 							r={selectedStation?.id === station.id ? "20" : "18"}
 							whileHover={{ scale: 1.3 }}
-							// className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#00F8C4]' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#7A62F7]'}`}
-							// className={`cursor-pointer shadow-[#fff] drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#2BA35B] dark:fill-[#2ba35b] ring-4 ring-indigo-500/50 hover:scale-110 transition-all' : index === reachedStationIndex ? 'fill-[#00D1FF]' : 'fill-[#4F5D95] dark:fill-[#344bae]'}`}
 							className={`cursor-pointer drop-shadow-xl ${index < reachedStationIndex ? 'fill-[#2BA35B] dark:fill-[#2ba35b] hover:scale-110 transition-all' : index === reachedStationIndex ? 'fill-[#008CFF] stroke-[#ffffff] stroke-[2px]' : 'fill-[#4F5D95] dark:fill-[#344bae]'}`}
 							initial={{ filter: "drop-shadow(0px 0px 10px #00F8C4)" }}
 							animate={{ filter: ["drop-shadow(0px 0px 10px #00F8C4)", "drop-shadow(0px 0px 20px #00F8C4)"] }}
@@ -128,11 +113,11 @@ const MetroJourney2 = () => {
 				))}
 			</svg>
 
-			<div className="absolute inset-0">
+			<div className='absolute inset-0'>
 				{journeyDetails.map((station, index) => (
 					station.title ? (
-						<div key={index} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave} onClick={() => handleStationClick(station)} className="cursor-pointer">
-							<div className="absolute" style={{ left: `${station.x}`, top: `${station.y}`, transform: "translate(-50%, -50%)" }}>
+						<div key={index} onClick={() => handleStationClick(station)} className='cursor-pointer'>
+							<div className='absolute' style={{ left: `${station.x}`, top: `${station.y}`, transform: "translate(-50%, -50%)" }}>
 								<Tooltip tooltipTitle={station.title} onClick={() => handleStationClick(station, true)} icon={station.icon}>
 									<i className={`${station.icon} text-[#F1FAFF] dark:text-white`} onClick={(e) => { e.stopPropagation(); handleStationClick(station) }}></i>
 								</Tooltip>
@@ -141,7 +126,7 @@ const MetroJourney2 = () => {
 					) : null
 				))}
 			</div>
-			<div class="absolute inset-0 animate-[float_6s_infinite_alternate] blur-lg bg-white/10 w-2 h-2 rounded-full"></div>
+			<div className='absolute inset-0 animate-[float_6s_infinite_alternate] blur-lg bg-white/10 w-2 h-2 rounded-full'></div>
 			{isModalOpen && (
 				<InfoModal
 					close={modalClose}

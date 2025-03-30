@@ -12,16 +12,20 @@ Welcome to my **personal portfolio website**! 🚀 This is where I showcase my *
 ## 🚀 Installation & Setup
 
 ```sh
-git clone https://github.com/your-username/your-portfolio.git
-cd your-portfolio
+git clone https://github.com/dipnangle/dPortfolio.git
+cd dPortfolio
 npm install
 npm start
 ```
 
 ## 🎯 Live Demo
-- [Check out my live portfolio here!](https://pages.github.com/)
+- [Check out my live portfolio here!](https://dipnangle.com/)
 
 ## 📬 Contact Me
-GitHub: [dipnangle]()\
-LinkedIn: [Dipesh Nangle]()\
-Email: [dipnangle31@gmail.com]()
+GitHub: [dipnangle](https://github.com/dipnangle)\
+LinkedIn: [Dipesh Nangle](https://www.linkedin.com/in/dipesh-nangle-69419613a/)\
+Email: [dipnangle31@gmail.com]
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![Light](https://raw.githubusercontent.com/dipnangle/dPortfolio/main/src/assets/lightmodess.png) | ![Dark](https://raw.githubusercontent.com/dipnangle/dPortfolio/main/src/assets/darkmodess.png) |
