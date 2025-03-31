@@ -83,23 +83,23 @@ function NavBar({ toggleTheme }) {
 									<div className='py-1 text-gray-700 dark:text-white shadow-sm dark:shadow-md dark:shadow-blue-500/50' role='none'>
 										<ul className=''>
 											<li className='dropdownOption'>
-												<Link to='/' className={pageLocation.pathname === '/' ? 'text-blue-500 font-bold' : ''}>About</Link>
+												<Link to='/' className={pageLocation.pathname === '/' ? 'text-blue-500 font-bold' : ''} onClick={() => setIsOpen(false)}>About</Link>
 											</li>
 											<li className='dropdownOption'>
-												<Link to='/journey' className={pageLocation.pathname === '/journey' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>My Journey</Link>
+												<Link to='/journey' className={pageLocation.pathname === '/journey' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>My Journey</Link>
 											</li>
 											<li className='dropdownOption'>
-												<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>Skills</Link>
+												<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>Skills</Link>
 											</li>
 											<li className='dropdownOption'>
-												<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>Resume</Link>
+												<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>Resume</Link>
 											</li>
 										</ul>
 										<hr></hr>
-										<a className='flex gap-1 dark:text items-center px-4 py-1' target='_blank' href='https://github.com/dipnangle'>
+										<a className='flex gap-1 dark:text items-center px-4 py-1' target='_blank' href='https://github.com/dipnangle' onClick={() => setIsOpen(false)}>
 											Github<svg width='24' height='24' viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0" /><g strokeLinecap="round" strokeLinejoin="round" /><circle cx="24" cy="24" r="20" fill="#181717" /><path d="M6.813 34.235a20.06 20.06 0 0 0 10.864 8.743c1 .183 1.366-.434 1.366-.965 0-.22-.004-.607-.01-1.126-.005-.602-.012-1.38-.018-2.275-5.563 1.209-6.736-2.681-6.736-2.681-.91-2.31-2.221-2.925-2.221-2.925-1.816-1.24.137-1.216.137-1.216 2.008.142 3.063 2.061 3.063 2.061 1.784 3.056 4.682 2.173 5.821 1.663.182-1.293.698-2.175 1.27-2.675-4.441-.504-9.11-2.22-9.11-9.884 0-2.183.78-3.969 2.059-5.367-.207-.506-.893-2.54.195-5.293 0 0 1.68-.538 5.5 2.05A19.2 19.2 0 0 1 24 13.672c1.698.008 3.41.23 5.007.673 3.819-2.588 5.495-2.05 5.495-2.05 1.091 2.754.405 4.787.198 5.293 1.282 1.398 2.057 3.183 2.057 5.366 0 7.684-4.677 9.375-9.132 9.87.718.617 1.358 1.837 1.358 3.704 0 1.787-.011 3.344-.019 4.376-.003.51-.006.892-.006 1.11 0 .535.36 1.157 1.375.962a20.04 20.04 0 0 0 9.207-6.386C35.873 41.11 30.274 44 24 44c-7.306 0-13.696-3.917-17.187-9.765" fill="#fff" /></svg>
 										</a>
-										<a className='flex gap-1 items-center px-4 py-1' target='_blank' href='https://www.linkedin.com/in/dipesh-nangle-69419613a/'>
+										<a className='flex gap-1 items-center px-4 py-1' target='_blank' href='https://www.linkedin.com/in/dipesh-nangle-69419613a/' onClick={() => setIsOpen(false)}>
 											<span className='text-[#0A66C2]'>Linked</span>
 											<svg width='24' viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#0A66C2"><g strokeWidth="0" /><g strokeLinecap="round" strokeLinejoin="round" /><g data-name="Layer 2"><g data-name="invisible box" fill="none"><path d="M0 0h48v48H0z" /><path d="M0 0h48v48H0z" /></g><path d="M41 4.1H7A2.9 2.9 0 0 0 4 7v34.1A2.9 2.9 0 0 0 7 44h34a2.9 2.9 0 0 0 2.9-2.9V7A2.9 2.9 0 0 0 41 4.1m-25.1 34h-6v-19h6Zm-3-21.6A3.5 3.5 0 0 1 9.5 13a3.4 3.4 0 0 1 6.8 0 3.5 3.5 0 0 1-3.4 3.5M38 38.1h-5.9v-9.3c0-2.2 0-5-3.1-5s-3.5 2.4-3.5 4.9v9.4h-5.9v-19h5.6v2.6h.1a6.2 6.2 0 0 1 5.6-3.1c6 0 7.1 3.9 7.1 9.1Z" data-name="icons Q2" /></g></svg>
 										</a>

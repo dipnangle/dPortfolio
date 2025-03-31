@@ -12,7 +12,7 @@ const Mob = () => {
 	const [isVisible, setIsVisible] = useState(true);
 
 	useEffect(() => {
-		const controls = animate(count, 100, { duration: 2 })
+		const controls = animate(count, 100, { duration: 1 })
 		const unsubscribe = rounded.onChange((latest) => {
 			if (latest === 100) {
 				setTimeout(() => setIsVisible(false), 500); // Hide after 0.5s
@@ -81,15 +81,15 @@ const Mob = () => {
 		{ id: 52, x1: "60%", y1: "415vh", x2: "10%", y2: "415vh", duration: 0.2, delay: 8.8 },
 		{ id: 53, x1: "10%", y1: "415vh", x2: "10%", y2: "430vh", duration: 0.2, delay: 9 },
 		{ id: 54, x1: "10%", y1: "430vh", x2: "90%", y2: "430vh", duration: 0.2, delay: 9.2 },
-		{ id: 55, x1: "90%", y1: "430vh", x2: "90%", y2: "450vh", duration: 0.2, delay: 9.4 },
-		{ id: 56, x1: "90%", y1: "450vh", x2: "10%", y2: "450vh", duration: 0.2, delay: 9.6 },
-		{ id: 57, x1: "10%", y1: "450vh", x2: "10%", y2: "470vh", duration: 0.2, delay: 9.8 },
-		{ id: 58, x1: "10%", y1: "470vh", x2: "90%", y2: "470vh", duration: 0.2, delay: 10 },
-		{ id: 59, x1: "90%", y1: "470vh", x2: "90%", y2: "485vh", duration: 0.2, delay: 10.2 },
-		{ id: 60, x1: "90%", y1: "470vh", x2: "90%", y2: "485vh", duration: 0.2, delay: 10.2 },
-		{ id: 61, x1: "90%", y1: "485vh", x2: "50%", y2: "485vh", duration: 0.2, delay: 10.4 },
-		{ id: 62, x1: "50%", y1: "485vh", x2: "50%", y2: "495vh", duration: 0.2, delay: 10.6 },
-		{ id: 63, x1: "50%", y1: "495vh", duration: 0.5, delay: 2 , end: true },
+		{ id: 55, x1: "90%", y1: "430vh", x2: "90%", y2: "455vh", duration: 0.2, delay: 9.4 },
+		{ id: 56, x1: "90%", y1: "455vh", x2: "10%", y2: "455vh", duration: 0.2, delay: 9.6 },
+		{ id: 57, x1: "10%", y1: "455vh", x2: "10%", y2: "480vh", duration: 0.2, delay: 9.8 },
+		{ id: 58, x1: "10%", y1: "480vh", x2: "90%", y2: "480vh", duration: 0.2, delay: 10 },
+		{ id: 59, x1: "90%", y1: "480vh", x2: "90%", y2: "495vh", duration: 0.2, delay: 10.2 },
+		{ id: 60, x1: "90%", y1: "495vh", x2: "90%", y2: "495vh", duration: 0.2, delay: 10.2 },
+		{ id: 61, x1: "90%", y1: "495vh", x2: "50%", y2: "495vh", duration: 0.2, delay: 10.4 },
+		{ id: 62, x1: "50%", y1: "495vh", x2: "50%", y2: "500vh", duration: 0.2, delay: 10.6 },
+		{ id: 63, x1: "50%", y1: "500vh", duration: 0.5, delay: 2 , end: true },
 	];
 
 	return (
@@ -129,7 +129,7 @@ const Mob = () => {
 							</div>
 						</div>
 					</div>
-					<div className="relative flex flex-col items-center w-full h-[500vh]">
+					<div className="relative flex flex-col items-center w-full h-[510vh]">
 						<svg className="absolute w-full h-full">
 							{journeyPathDetails.map((line) => (
 								line.end ? <motion.circle
@@ -200,7 +200,7 @@ const Mob = () => {
 							<g strokeLinecap="round" strokeLinejoin="round" />
 							<path d="M254 150.588v93.343H53.545v-31.916h64.591v-28.727h60.744v-32.7zM113.175 18.875c0 9.282 7.524 16.806 16.806 16.806s16.806-7.524 16.806-16.806-7.524-16.806-16.806-16.806-16.806 7.524-16.806 16.806m76.74 81.295c-1.62 3.746-6.074 5.264-9.82 3.543l-31.182-14.68c-1.822-.81-3.341-2.43-3.948-4.353L139.7 69.798l-7.289 36.463 24.593.506c5.264.101 9.415 4.556 9.314 9.82l-1.316 50.999c-.101 5.264-4.454 9.415-9.618 9.415h-.203c-5.366-.101-9.516-4.556-9.415-9.82l1.114-41.483-30.668-.709-7.087 35.113c-.304 1.417-.911 2.936-1.721 4.151L81.18 201.974c-3.341 4.859-9.82 5.872-14.68 2.531-4.758-3.341-5.872-9.82-2.43-14.579l24.908-35.494 15.963-90.455-31.758 29.328a7.2 7.2 0 0 1-1.823 1.224l2.972 2.972-8.68 8.68 14.466 14.466-11.573 11.573-46.292-46.293 11.573-11.573L48.292 88.82l8.68-8.68 4.843 4.842a7.2 7.2 0 0 1 1.553-2.164l39.78-37.769c5.25-4.518 13.672-7.244 20.962-6.029l6.884 1.316c9.213 1.62 16.299 7.897 19.236 16.097l7.492 20.552 28.448 13.364c3.745 1.621 5.365 6.075 3.745 9.821M67.099 97.501 56.972 87.374l-5.063 5.063 10.127 10.127zm-10.127 28.932-2.893 2.893-5.786-5.787 2.893-2.893-17.36-17.36-2.893 2.893-5.787-5.787 2.893-2.893-8.68-8.68L2 106.18l46.293 46.293 17.36-17.36z" />
 						</svg>
-						<div className='absolute top-[125vh] left-[12%] text-lg dark:text-white translate-y-[0%] '>
+						<div className='absolute top-[125vh] left-[12%] text-lg dark:text-white translate-y-[0%] w-1/2'>
 							<div className='mt-1'>
 								Design engineer | <a href='https://www.lithotechfoodspicemachinery.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 								<hr className="border-gray-600"></hr>
@@ -209,12 +209,12 @@ const Mob = () => {
 								Lithotech Food, Mumbai (2019-2021)
 							</div>
 						</div>
-						<div className='absolute top-[175vh] right-[12%] text-right text-lg dark:text-white translate-y-[-110%] '>
+						<div className='absolute top-[175vh] right-[12%] text-right text-lg dark:text-white translate-y-[-110%] w-1/2'>
 							<div className=''>
 								Design engineer | <a href='http://ggtpl.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 								<hr className="border-gray-600"></hr>
 							</div>
-							<div className='text-sm mb-1 text-gray-500 font-poppins'>
+							<div className='text-sm mb-1 text-gray-500 font-poppins ml-auto'>
 								Grade & Grind Technologies, Mumbai (2019-2021)
 							</div>
 						</div>
@@ -285,19 +285,19 @@ const Mob = () => {
 						<div className='absolute top-[430vh] right-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[-10px] text-justify'>
 							Explored Hadoop, HBase & Hive for big data processing, optimizing queries & managing large-scale datasets.
 						</div>
-						<div className='absolute top-[450vh] left-[10%] dark:text-white transform translate-y-[-120%] translate-x-[10px]'>
-							Community Engagement and Blogging | <a href='https://www.virtualizor.com/blog/author/dipesh/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+						<div className='absolute top-[455vh] left-[10%] dark:text-white transform translate-y-[-120%] translate-x-[10px]'>
+							Community and Blogging | <a href='https://www.virtualizor.com/blog/author/dipesh/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 						</div>
-						<div className='absolute top-[450vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[10px] text-justify'>
+						<div className='absolute top-[455vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[10px] text-justify'>
 							Sharing tech insights via blogs & forums to foster learning and community engagement.
 						</div>
-						<div className='absolute top-[470vh] right-[10%] dark:text-white transform translate-y-[-120%] translate-x-[-10px]'>
+						<div className='absolute top-[480vh] right-[10%] dark:text-white transform translate-y-[-120%] translate-x-[-10px]'>
 							Leadership in Tech Initiatives
 						</div>
-						<div className='absolute top-[470vh] right-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[-10px] text-justify'>
+						<div className='absolute top-[480vh] right-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[-10px] text-justify'>
 							Aiming for leadership in tech, mentoring peers, leading hackathons, and driving innovation.
 						</div>
-						<div className='absolute top-[495vh] text-white dark:text-black text-xl transform translate-y-[-50%]'>
+						<div className='absolute top-[500vh] text-white dark:text-black text-xl transform translate-y-[-50%]'>
 							<i class="bi bi-globe-central-south-asia"></i>
 						</div>
 					</div>
