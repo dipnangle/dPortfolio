@@ -13,7 +13,7 @@ const downloadResume = () => {
 
 const Resume = () => {
     return (
-        <div className="relative flex flex-col lg:flex-row justify-center items-center pt-16 min-h-screen transition-colors duration-300 dark:bg-gray-900 dark:text-white bg-gray-100 text-black gap-10">
+        <div className="relative flex flex-col lg:flex-row justify-center items-center pt-16 min-h-screen transition-colors duration-300 dark:bg-gray-900 dark:text-white bg-[#F1FAFF] text-black gap-10">
             
             <div className="lg:pl-24 pt-10 lg:absolute lg:right-20 lg:top-36">
                 <button onClick={downloadResume} className="relative inline-flex h-12 active:scale-95 transition overflow-hidden rounded-lg p-[1px] focus:outline-none">
@@ -27,7 +27,7 @@ const Resume = () => {
                     </span>
                 </button>
             </div>
-            <div className="w-[90%] lg:w-[60%] lg:mt-8 flex flex-col gap-4 items-center">
+            <div className="resume">
                 <img src={resume1} />
                 <img src={resume2} />
             </div>

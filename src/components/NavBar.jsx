@@ -15,16 +15,16 @@ function NavBar({ toggleTheme }) {
 						<div className="flex space-x-5 justify-center items-center pl-2">
 							<ul className="flex space-x-4 dark:text-white">
 								<li>
-									<Link to='/' className={pageLocation.pathname === '/' ? 'text-blue-500 font-bold' : 'hover:text-blue-300'}>About</Link>
+									<Link to='/' className={pageLocation.pathname === '/' ? 'text-blue-500 font-semibold' : 'hover:text-blue-300'}>About</Link>
 								</li>
 								<li>
-									<Link to='/journey' className={pageLocation.pathname === '/journey' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>My Journey</Link>
+									<Link to='/journey' className={pageLocation.pathname === '/journey' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>My Journey</Link>
 								</li>
 								<li>
-									<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>Skills</Link>
+									<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>Skills</Link>
 								</li>
 								<li>
-									<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'}>Resume</Link>
+									<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>Resume</Link>
 								</li>
 							</ul>
 							<button onClick={toggleTheme} className='toggleSwitch'>
