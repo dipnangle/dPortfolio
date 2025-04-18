@@ -18,7 +18,7 @@ import canva from '../assets/canva.svg';
 import photoshop from '../assets/photoshop.svg';
 import coreldraw from '../assets/coreldraw.svg';
 import premierpro from '../assets/premierpro.svg';
-import tortoisesvn from '../assets/tortoisesvn.svg';
+import tortoisesvn from '../assets/tortoiseSVN.png';
 import git from '../assets/git.svg';
 import github from '../assets/github.svg';
 // importing png because i did not found the svg for winscp as well as for for beyond compare
@@ -55,7 +55,12 @@ const Skills = () => {
 					<div className='w-full mt-5 md:m-0 lg:m-0 md:w-1/2 lg:w-1/2 gap-4'>
 						<div className='skillImg'>
 							{skillIcons.slice(0, 15).map((icon, index) => (
-								<SkillCard title={skillNames[index]} icon={icon} />
+								<SkillCard
+									key={index}
+									id={`skill-${index}`}
+									title={skillNames[index]} 
+									icon={icon} 
+								/>
 							))}
 						</div>
 					</div>
@@ -72,7 +77,12 @@ const Skills = () => {
 					<div className='lg:w-1/2 w-full'>
 						<div className='skillImg'>
 							{skillIcons.slice(15, 19).map((icon, index) => (
-								<SkillCard title={skillNames[index + 15]} icon={icon} />
+								<SkillCard 
+									key={index + 15}
+									id={`skill-${index + 15}`}
+									title={skillNames[index + 15]}
+									icon={icon} 
+								/>
 							))}
 						</div>
 					</div>
@@ -89,7 +99,12 @@ const Skills = () => {
 					<div className='lg:w-1/2 w-full'>
 						<div className='skillImg'>
 							{skillIcons.slice(19, 25).map((icon, index) => (
-								<SkillCard title={skillNames[index + 19]} icon={icon} />
+								<SkillCard 
+									key={index + 19}
+									id={`skill-${index + 19}`}
+									title={skillNames[index + 19]}
+									icon={icon}
+								/>
 							))}
 						</div>
 					</div>
@@ -106,7 +121,12 @@ const Skills = () => {
 					<div className='lg:w-1/2 w-full'>
 						<div className='skillImg'>
 							{skillIcons.slice(25, 33).map((icon, index) => (
-								<SkillCard title={skillNames[index + 25]} icon={icon} />
+								<SkillCard
+									key={index + 25}
+									id={`skill-${index + 25}`}
+								 	title={skillNames[index + 25]}
+									icon={icon} 
+								/>
 							))}
 						</div>
 					</div>

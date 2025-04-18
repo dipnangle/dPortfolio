@@ -53,7 +53,6 @@ const MetroJourney2 = () => {
 
 		if (modalCheck == true) {
 			modalOpen(station);
-			console.log("yaha he")
 		}
 	};
 

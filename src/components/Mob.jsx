@@ -169,7 +169,7 @@ const Mob = () => {
 						</div>
 						<div className='text-left'>
 							<div className='absolute top-[60vh] left-[10%] ml-2 text-lg dark:text-white translate-y-[-110%] mr-2 '>
-								SSC | <a href='https://shailendradegreecollege.in/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+								SSC | <a href='https://shailendradegreecollege.in/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							</div>
 							<div className='absolute top-[60vh] left-[10%] ml-2 text-sm text-gray-500 translate-y-[10%] mr-2'>
 								Shailendra Education Society,<br/> Mumbai (2006-2013) | 83.09%
@@ -177,7 +177,7 @@ const Mob = () => {
 						</div>
 						<div className='text-right'>
 							<div className='absolute top-[80vh] right-[10%] mr-2 text-lg dark:text-white translate-y-[-110%] '>
-								Diploma in Engineering | <a href='https://www.prppolytechnic.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+								Diploma in Engineering | <a href='https://www.prppolytechnic.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							</div>
 							<div className='absolute top-[80vh] right-[10%] mr-2 text-sm text-gray-500 translate-y-[10%] font-poppins'>
 								PRP College,<br/> Mumbai (2013-2016) | 76.53%
@@ -185,7 +185,7 @@ const Mob = () => {
 						</div>
 						<div className=''>
 							<div className='absolute top-[100vh] left-[10%] ml-2 text-lg dark:text-white translate-y-[-110%] '>
-								Bachelor of Engineering | <a href='https://www.viva-technology.org/New/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+								Bachelor of Engineering | <a href='https://www.viva-technology.org/New/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							</div>
 							<div className='absolute top-[100vh] left-[10%] ml-2 text-sm text-gray-500 translate-y-[10%] font-poppins'>
 								VIT College,<br/> Mumbai (2016-2019) | 7.31 CGPI
@@ -203,7 +203,7 @@ const Mob = () => {
 						</svg>
 						<div className='absolute top-[125vh] left-[12%] text-lg dark:text-white translate-y-[0%] w-1/2'>
 							<div className='mt-1'>
-								Design engineer | <a href='https://www.lithotechfoodspicemachinery.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+								Design engineer | <a href='https://www.lithotechfoodspicemachinery.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 								<hr className="border-gray-600"></hr>
 							</div>
 							<div className='text-sm text-gray-500 font-poppins'>
@@ -212,7 +212,7 @@ const Mob = () => {
 						</div>
 						<div className='absolute top-[175vh] right-[12%] text-right text-lg dark:text-white translate-y-[-110%] w-1/2'>
 							<div className=''>
-								Design engineer | <a href='http://ggtpl.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+								Design engineer | <a href='http://ggtpl.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 								<hr className="border-gray-600"></hr>
 							</div>
 							<div className='text-sm mb-1 text-gray-500 font-poppins ml-auto'>
@@ -229,7 +229,7 @@ const Mob = () => {
 							</div>
 						</div>
 						<div className="absolute top-[200vh] left-[30%] dark:text-white text-2xl mt-1 translate-y-[-100%]">
-							<i class="bi bi-graph-up-arrow"></i>
+							<i className="bi bi-graph-up-arrow"></i>
 						</div>
 						<div className="absolute top-[206vh] right-[30%] flex items-center dark:text-white text-black text-lg ">
 							backend and database
@@ -238,7 +238,7 @@ const Mob = () => {
 							</div>
 						</div>
 						<div className='absolute top-[227vh] text-center dark:text-white text-lg'>
-							Softaculous.ltd | <a href='https://www.softaculous.com/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+							Softaculous.ltd | <a href='https://www.softaculous.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							<hr className="border-gray-600"></hr>
 						</div>
 						<div className='absolute top-[231vh] justify-center flex text-justify w-2/3 text-gray-500 text-sm'>
@@ -275,7 +275,7 @@ const Mob = () => {
 							</div>
 						</div>
 						<div className='absolute top-[415vh] left-[10%] dark:text-white transform translate-y-[-120%] ml-2'>
-							Data Visualization | <a href='https://github.com/dipnangle/PowerBI-Dashboards'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+							Data Visualization | <a href='https://github.com/dipnangle/PowerBI-Dashboards'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 						</div>
 						<div className='absolute top-[415vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] ml-2 text-left'>
 							Used Power BI & Tableau Dashboards,<br/> shared on GitHub
@@ -287,7 +287,7 @@ const Mob = () => {
 							Explored Hadoop, HBase & Hive for big data processing, optimizing queries & managing large-scale datasets.
 						</div>
 						<div className='absolute top-[455vh] left-[10%] dark:text-white transform translate-y-[-120%] translate-x-[10px]'>
-							Community and Blogging | <a href='https://www.virtualizor.com/blog/author/dipesh/'><i class="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+							Community and Blogging | <a href='https://www.virtualizor.com/blog/author/dipesh/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 						</div>
 						<div className='absolute top-[455vh] left-[10%] text-sm text-gray-500 transform translate-y-[10%] w-1/2 translate-x-[10px] text-justify'>
 							Sharing tech insights via blogs & forums to foster learning and community engagement.
@@ -299,7 +299,7 @@ const Mob = () => {
 							Aiming for leadership in tech, mentoring peers, leading hackathons, and driving innovation.
 						</div>
 						<div className='absolute top-[500vh] text-white dark:text-black text-xl transform translate-y-[-50%]'>
-							<i class="bi bi-globe-central-south-asia"></i>
+							<i className="bi bi-globe-central-south-asia"></i>
 						</div>
 					</div>
 				</motion.div>

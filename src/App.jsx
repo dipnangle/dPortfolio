@@ -12,19 +12,18 @@ function App() {
 	const [theme, setTheme] = useState('light');
 
 	useEffect(() => {
-		const storedTheme = localStorage.getItem("theme");
-		if (storedTheme) {
-			setTheme(storedTheme);
-			document.documentElement.classList.add(storedTheme)
+		let storedTheme = localStorage.getItem("theme");
+		
+		// if we dont get the theme item then we can set as light to show the toggle switch properly
+		if(!storedTheme) {
+			storedTheme = "light";
+			localStorage.setItem("theme", storedTheme);
 		}
-	}, []);
+		
+		setTheme(storedTheme);
+		document.documentElement.classList.add(storedTheme)
 
-	// Update the document class when the theme changes
-	// useEffect(() => {
-	// 	document.documentElement.classList.remove("light", "dark");
-	// 	document.documentElement.classList.add(theme);
-	// 	localStorage.setItem("theme", theme);
-	// }, [theme]);
+	}, []);
 
 	// defining toggle switch for dark and light mode portfolio
 	const toggleSwitch = () => {
@@ -38,7 +37,7 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
-				<NavBar toggleTheme={toggleSwitch} />
+				<NavBar toggleTheme={toggleSwitch} theme={theme}/>
 				<Routes>
 					<Route path="/" element={<Home/>}></Route>
 					<Route path="/journey" element={<Journey/>}></Route>
