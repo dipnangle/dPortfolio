@@ -18,10 +18,10 @@ import canva from '../assets/canva.svg';
 import photoshop from '../assets/photoshop.svg';
 import coreldraw from '../assets/coreldraw.svg';
 import premierpro from '../assets/premierpro.svg';
-import tortoisesvn from '../assets/tortoiseSVN.png';
 import git from '../assets/git.svg';
 import github from '../assets/github.svg';
 // importing png because i did not found the svg for winscp as well as for for beyond compare
+import tortoisesvn from '../assets/tortoisesvn.png';
 import winscp from '../assets/winscp.png';
 import beyondcompare from '../assets/beyondcompare.png';
 import putty from '../assets/putty.svg';
