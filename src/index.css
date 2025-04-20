@@ -106,7 +106,7 @@
 }
 
 .skillsDiv {
-	@apply w-full h-full pt-20 bg-sky-50/90 lg:px-10 md:px-10 px-5 dark:bg-[#060d1e]
+	@apply w-full h-full pt-20 bg-sky-50/90 lg:px-10 md:px-10 px-5 dark:bg-[#060d1e] overflow-y-hidden
 }
 
 .development {

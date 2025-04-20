@@ -49,7 +49,7 @@ const Skills = () => {
 						<h3 className=''>Development Skills</h3>
 						<hr className='my-2 border border-gray-500'></hr>
 						<p className='developmentText'>
-							' I am a passionate full-stack developer with expertise in technologies like Python, JavaScript, PHP, Node.js, and React. From building dynamic web applications to managing server infrastructure with Linux, Virtuozzo, and Proxmox, I love crafting scalable and efficient solutions. My skills extend to front-end development with HTML, CSS, Tailwind, and Bootstrap, ensuring modern and responsive designs. On the backend, I work with databases like MongoDB and MySQL, delivering data-driven applications. Always eager to learn and grow, I thrive on solving complex challenges and optimizing performance.'
+							I am a passionate full-stack developer with expertise in technologies like Python, JavaScript, PHP, Node.js, and React. From building dynamic web applications to managing server infrastructure with Linux, Virtuozzo, and Proxmox, I love crafting scalable and efficient solutions. My skills extend to front-end development with HTML, CSS, Tailwind, and Bootstrap, ensuring modern and responsive designs. On the backend, I work with databases like MongoDB and MySQL, delivering data-driven applications. Always eager to learn and grow, I thrive on solving complex challenges and optimizing performance.
 						</p>
 					</div>
 					<div className='w-full mt-5 md:m-0 lg:m-0 md:w-1/2 lg:w-1/2 gap-4'>
@@ -71,7 +71,7 @@ const Skills = () => {
 						<h3 className=''>Web & Graphic Design Skills</h3>
 						<hr className='border my-2 border-gray-500'></hr>
 						<p className='developmentText'>
-							' I specialize in creating high-quality visuals using Canva for quick design mockups and social media content. For advanced image editing and retouching, I rely on Photoshop, ensuring precision and detail. CorelDRAW helps me with vector-based designs, making logos, illustrations, and branding elements sharp and scalable. When it comes to video editing, Premiere Pro allows me to produce smooth, professional-grade content. Combining these tools, I design engaging graphics, edit high-quality visuals, and enhance multimedia projects with efficiency and creativity.'
+							I specialize in creating high-quality visuals using Canva for quick design mockups and social media content. For advanced image editing and retouching, I rely on Photoshop, ensuring precision and detail. CorelDRAW helps me with vector-based designs, making logos, illustrations, and branding elements sharp and scalable. When it comes to video editing, Premiere Pro allows me to produce smooth, professional-grade content. Combining these tools, I design engaging graphics, edit high-quality visuals, and enhance multimedia projects with efficiency and creativity.
 						</p>
 					</div>
 					<div className='lg:w-1/2 w-full'>
@@ -93,7 +93,7 @@ const Skills = () => {
 						<h3 className=''>Development & Version Control</h3>
 						<hr className='my-2 border border-gray-500'></hr>
 						<p className='developmentText'>
-							' I leverage Git and GitHub to ensure seamless version control, efficient branching strategies, and smooth collaboration across development teams. For projects requiring centralized version control, I utilize TortoiseSVN, simplifying repository management with an intuitive interface. When it comes to secure server access and remote management, I rely on PuTTY for SSH connections and WinSCP for file transfers, ensuring smooth deployment and maintenance. By integrating these tools, I streamline development workflows, enhance code stability, and maintain secure, well-organized project environments.'
+							I leverage Git and GitHub to ensure seamless version control, efficient branching strategies, and smooth collaboration across development teams. For projects requiring centralized version control, I utilize TortoiseSVN, simplifying repository management with an intuitive interface. When it comes to secure server access and remote management, I rely on PuTTY for SSH connections and WinSCP for file transfers, ensuring smooth deployment and maintenance. By integrating these tools, I streamline development workflows, enhance code stability, and maintain secure, well-organized project environments.
 						</p>
 					</div>
 					<div className='lg:w-1/2 w-full'>
@@ -115,7 +115,7 @@ const Skills = () => {
 						<h3 className=''>Data Analytics & Big Data</h3>
 						<hr className='border my-2 border-gray-500'></hr>
 						<p className='developmentText'>
-							' I leverage Power BI to transform raw data into interactive dashboards, enabling data-driven decision-making with real-time insights. With Tableau, I craft visually compelling reports, simplifying complex datasets into intuitive visualizations for deeper analysis. For handling large-scale data, I work with Hadoop, utilizing its distributed computing power to process massive datasets efficiently. By combining these tools, I ensure seamless data integration, visualization, and analysis, helping businesses uncover trends, optimize strategies, and make informed decisions.'
+							I leverage Power BI to transform raw data into interactive dashboards, enabling data-driven decision-making with real-time insights. With Tableau, I craft visually compelling reports, simplifying complex datasets into intuitive visualizations for deeper analysis. For handling large-scale data, I work with Hadoop, utilizing its distributed computing power to process massive datasets efficiently. By combining these tools, I ensure seamless data integration, visualization, and analysis, helping businesses uncover trends, optimize strategies, and make informed decisions.
 						</p>
 					</div>
 					<div className='lg:w-1/2 w-full'>
