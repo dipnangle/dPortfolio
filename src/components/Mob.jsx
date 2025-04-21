@@ -216,7 +216,7 @@ const Mob = () => {
 								<hr className="border-gray-600"></hr>
 							</div>
 							<div className='text-sm mb-1 text-gray-500 font-poppins ml-auto'>
-								Grade & Grind Technologies, Mumbai (2019-2021)
+								Grade & Grind Technologies, Mumbai (2021)
 							</div>
 						</div>
 						<div className="absolute top-[150vh] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-lg dark:text-white">
@@ -238,7 +238,7 @@ const Mob = () => {
 							</div>
 						</div>
 						<div className='absolute top-[227vh] text-center dark:text-white text-lg'>
-							Softaculous.ltd | <a href='https://www.softaculous.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
+							Softaculous.ltd | (2021 - Current) <a href='https://www.softaculous.com/'><i className="text-blue-500 text-xs bi bi-box-arrow-up-right"></i></a>
 							<hr className="border-gray-600"></hr>
 						</div>
 						<div className='absolute top-[231vh] justify-center flex text-justify w-2/3 text-gray-500 text-sm'>
@@ -250,7 +250,7 @@ const Mob = () => {
 						<div className='absolute top-[305vh] dark:text-white left-[30%] translate-y-[-50%] translate-x-[0.5rem] text-lg'>
 							<span>
 								M.Sc <a className='text-sm text-blue-500' href='https://mu.ac.in/' target='_blank'>(Data Science)</a>
-								<hr className='broder-gray-500'></hr>
+								<hr className='border-gray-600'></hr>
 							</span>
 							<span className='text-sm text-gray-500'>
 								University Of Mumbai <br />(2023-2025)
@@ -259,7 +259,7 @@ const Mob = () => {
 						<div className='absolute top-[333vh] w-2/3 dark:text-white translate-y-[-50%] text-lg'>
 							<div>
 								Softaculous | <a className='text-sm text-blue-500' href='https://www.virtualizor.com/' target='_blank'>Virtualizor</a>
-								<hr className='broder-gray-500'></hr>
+								<hr className='border-gray-600'></hr>
 							</div>
 							<div className='text-sm text-gray-500 text-justify'>
 								At Softaculous, I worked with Virtualizor, gaining experience in KVM, Virtuozzo, and Proxmox while managing VMs. I optimized backend performance using shell scripting and deepened my Linux and networking skills. I also authored technical blogs, sharing insights on virtualization and automation.
@@ -268,7 +268,7 @@ const Mob = () => {
 						<div className='absolute top-[365vh] w-2/3 dark:text-white translate-y-[7%]'>
 							<div className='text-center text-lg'>
 								M.Sc
-								<hr className='broder-gray-500'></hr>
+								<hr className='border-gray-600'></hr>
 							</div>
 							<div className='text-sm text-gray-500 text-justify'>
 							As I near the completion of my MSc in Data Science at Mumbai University <span className='font-semibold'>(Last SEM Remaining)</span>, I have gained expertise in machine learning, AI, and data analytics, along with strong skills in data visualization and statistical methods. This journey has strengthened my technical proficiency and adaptability in the evolving field of data science.
