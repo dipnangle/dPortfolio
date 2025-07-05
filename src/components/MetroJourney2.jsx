@@ -135,6 +135,22 @@ const MetroJourney2 = () => {
 					link={journeyLink}
 				/>
 			)}
+			<motion.div
+				animate={{ y: [0, -5, 0] }}
+				transition={{duration: 1.5, repeat: Infinity, repeatType: "loop", ease: "easeInOut"}}
+				className="journeyTip"
+			>
+				<div className="flex flex-col items-start space-y-1">
+					<div className="flex items-center gap-2">
+						<span className="text-lg">💡</span>
+						<span><strong>Hover or click</strong> a station to see <strong>Station</strong> name</span>
+					</div>
+					<div className="flex items-center gap-2">
+						<span className="text-lg">🔍</span>
+						<span><strong>Click</strong> on the <strong>tooltip</strong> to view more details</span>
+					</div>
+				</div>
+			</motion.div>
 		</div>
 	);
 };
