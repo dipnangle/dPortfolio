@@ -13,6 +13,7 @@ src/components/TypingBlock.jsx
 dist
 dist-ssr
 *.local
+src/assets/manCoding (1).png
 
 # Editor directories and files
 .vscode/*

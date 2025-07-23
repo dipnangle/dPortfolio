@@ -32,7 +32,7 @@
 }
 
 .toggleSwitch {
-	@apply p-2 bg-transparent border border-gray-300 dark:border-[#f4f4f5] rounded-full dark:hover:border-blue-500
+	@apply p-2 bg-transparent border border-gray-300 dark:border-[#f4f4f5] rounded-full hover:border-blue-500 dark:hover:border-blue-500
 }
 
 .dropdownButton {
