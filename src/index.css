@@ -99,7 +99,7 @@
 }
 
 .boySection {
-	@apply w-full lg:flex md:flex md:justify-end lg:justify-end md:content-end lg:content-end mt-4
+	@apply w-full lg:flex md:flex md:justify-end lg:justify-end md:content-end lg:content-end mt-4 flex justify-center
 }
 
 .boyCoding {
