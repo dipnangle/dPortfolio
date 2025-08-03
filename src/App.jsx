@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Journey from './components/Journey';
 import Skills from './components/Skills';
 import Resume from './components/resume';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
 					<Route path="/journey" element={<Journey/>}></Route>
 					<Route path="/skills" element={<Skills/>}></Route>
 					<Route path="/resume" element={<Resume/>}></Route>
+					<Route path="/*" element={<NotFound/>}></Route>
 				</Routes>
 			</BrowserRouter>
 		</>
