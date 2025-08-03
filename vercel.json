@@ -1,5 +1,20 @@
 {
     "headers": [
+        
+        {
+            "source": "/(.*).js",
+            "headers": [
+                {
+                    "key": "Content-Security-Policy",
+                    "value": "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com; object-src 'none'; frame-ancestors 'none';"
+                },
+                { "key": "X-Frame-Options", "value": "DENY" },
+                {"key": "X-Content-Type-Options", "value": "nosniff"},
+                { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+                { "key": "Referrer-Policy", "value": "no-referrer-when-downgrade" },
+                { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+            ]
+        },
         {
             "source": "/assets/(.*).js",
             "headers": [
@@ -12,15 +27,12 @@
         {
             "source": "/assets/(.*).css",
             "headers": [
-                {
-                    "key": "Content-Type",
-                    "value": "text/css"
-                }
+                { "key": "Content-Type", "value": "text/css" }
             ]
         }
     ],
     "rewrites": [
-        {
+        { 
             "source": "/(.*)",
             "destination": "/index.html"
         }
