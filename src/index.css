@@ -128,7 +128,7 @@
 }
 
 .skillImg {
-	@apply grid grid-cols-3 sm:grid-cols-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4;
+	@apply grid items-center justify-items-center grid-cols-3 sm:grid-cols-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mb-4;
 }
 
 .skillRow {
