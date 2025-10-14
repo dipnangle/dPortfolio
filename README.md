@@ -24,7 +24,7 @@ npm start
 ## 📬 Contact Me
 GitHub: [dipnangle](https://github.com/dipnangle)\
 LinkedIn: [Dipesh Nangle](https://www.linkedin.com/in/dipesh-nangle-69419613a/)\
-Email: [dipnangle31@gmail.com]
+Email: [dipnangle@gmail.com]
 
 | Light Mode | Dark Mode |
 |------------|-----------|
