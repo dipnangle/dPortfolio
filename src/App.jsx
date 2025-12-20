@@ -7,6 +7,7 @@ import Journey from './components/Journey';
 import Skills from './components/Skills';
 import Resume from './components/resume';
 import NotFound from './components/NotFound';
+import { Analytics } from '@vercel/analytics/next';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
 	return (
 		<>
 			<BrowserRouter>
+				<Analytics/>
 				<NavBar toggleTheme={toggleSwitch} theme={theme}/>
 				<Routes>
 					<Route path="/" element={<Home/>}></Route>
