@@ -7,7 +7,7 @@ import Journey from './components/Journey';
 import Skills from './components/Skills';
 import Resume from './components/resume';
 import NotFound from './components/NotFound';
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
 
