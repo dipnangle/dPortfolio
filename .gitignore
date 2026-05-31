@@ -25,3 +25,8 @@ src/assets/manCoding (1).png
 *.njsproj
 *.sln
 *.sw?
+
+# adde teh files for te perfect issue if
+GEMINI.md
+HIVEFARROW.md
+memory/*

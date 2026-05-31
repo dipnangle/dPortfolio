@@ -4,7 +4,7 @@ import resume2 from "../assets/resume2.jpg"
 // it is fucntion for download function
 const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/DipeshNangleResume.pdf";
+    link.href = "/dipesh-nangle-resume.pdf";
     link.download = "DipeshNangleResume.pdf";
     document.body.appendChild(link);
     link.click();

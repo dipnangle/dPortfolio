@@ -24,6 +24,9 @@ function NavBar({ toggleTheme, theme }) {
 									<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>Skills</Link>
 								</li>
 								<li>
+									<Link to='/projects' className={pageLocation.pathname === '/projects' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>Projects</Link>
+								</li>
+								<li>
 									<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-semibold' : 'hover:text-blue-600'}>Resume</Link>
 								</li>
 							</ul>
@@ -90,6 +93,9 @@ function NavBar({ toggleTheme, theme }) {
 											</li>
 											<li className='dropdownOption'>
 												<Link to='/skills' className={pageLocation.pathname === '/skills' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>Skills</Link>
+											</li>
+											<li className='dropdownOption'>
+												<Link to='/projects' className={pageLocation.pathname === '/projects' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>Projects</Link>
 											</li>
 											<li className='dropdownOption'>
 												<Link to='/resume' className={pageLocation.pathname === '/resume' ? 'text-blue-500 font-bold' : 'hover:text-blue-600'} onClick={() => setIsOpen(false)}>Resume</Link>
