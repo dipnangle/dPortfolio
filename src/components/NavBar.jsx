@@ -9,7 +9,7 @@ function NavBar({ toggleTheme, theme }) {
 	return (
 		<>
 			<header className="navBar">
-				<nav className="flex items-center justify-between">
+				<nav className="flex items-center justify-between max-w-[1700px] mx-auto">
 					<h2 className="portFolio"><Link to="/">Portfolio</Link></h2>
 					<div className='desktop'>
 						<div className="flex space-x-5 justify-center items-center pl-2">

@@ -1246,8 +1246,8 @@
 
 // export default Projects;
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /* ─────────────────────────────────────────────
    ASSETS
@@ -1309,6 +1309,7 @@ const featuredProjects = [
 const clientProjects = [
 	{
 		title: 'Indocom Solutions',
+		industry: 'Finance',
 		description:
 			'Corporate loan services platform with eligibility workflows, lead generation systems, and EMI calculators.',
 		stack: ['React', 'Tailwind', 'Vite'],
@@ -1316,41 +1317,120 @@ const clientProjects = [
 	},
 	{
 		title: 'Transtechnix Engineering',
+		industry: 'Industrial',
 		description:
 			'Industrial engineering website showcasing turnkey grinding plant solutions and manufacturing systems.',
 		stack: ['React', 'Tailwind', 'Vite'],
-		url: 'https://www.transtechnix.com/',
+		url: 'https://transtechnix.dipnangle.com/',
 	},
 	{
 		title: 'Swami Samarth Packaging',
+		industry: 'Industrial',
 		description:
 			'Corporate website for dangerous goods packaging and industrial logistics solutions.',
 		stack: ['React', 'Tailwind', 'Vite'],
 		url: 'https://www.swamipackaging.com/',
 	},
 	{
+		title: 'Triaangle Ad Agency',
+		industry: 'Creative & Media',
+		description:
+			'Creative advertising agency website showcasing branding, campaign, and creative design services with a portfolio-driven layout.',
+		stack: ['React', 'Tailwind', 'Vite'],
+		url: 'https://triaangle.dipnangle.com/',
+	},
+	{
 		title: 'Interior Design Studio',
+		industry: 'Interior Design',
 		description:
 			'Corporate website for a premium interior design firm specializing in luxury residential and commercial spaces.',
 		stack: ['React', 'Tailwind', 'Vite'],
 		url: null,
-	},
+	}
 ];
+
+const industryTabs = ['All', ...new Set(clientProjects.map((item) => item.industry))];
+
+const blogCategories = ['All', 'Release Engineering', 'Cloud & VPC', 'Security & ACL', 'Performance & Quotas'];
 
 const blogs = [
 	{
-		title: 'Virtualizor 3.2.9 Launched',
+		title: 'Virtualizor 3.2.9 Launched (Patch 8)',
+		category: 'Release Engineering',
+		date: 'Aug 2026',
+		readTime: '3 min read',
+		badge: 'Latest Release',
+		featured: true,
+		summary:
+			'Critical release candidate update delivering streamlined hypervisor task retries, automated WHMCS KYC error handling, and robust IP pool selection fixes.',
+		highlights: [
+			'WHMCS KYC & IP pool allocation fixes',
+			'Automated task retry queue enhancements',
+			'Clustered firewall rule sync across nodes',
+		],
+		tags: ['Release Candidate', 'WHMCS', 'IP Pools', 'Firewall Sync', 'Bugfixes'],
+		url: 'https://www.virtualizor.com/blog/virtualizor-3-2-9-launched-release-candidate-patch-8/',
+	},
+	{
+		title: 'Virtualizor 3.2.9 Launched In Stable',
+		category: 'Cloud & VPC',
+		date: 'July 2026',
+		readTime: '5 min read',
+		badge: 'General Availability',
+		featured: true,
+		summary:
+			'General availability milestone introducing enterprise Virtual Private Cloud (VPC) networking, baremetal server management, and secure LDAP authentication.',
+		highlights: [
+			'Virtual Private Cloud (VPC) network namespaces',
+			'Baremetal hypervisor instance management',
+			'Enterprise secure LDAP directory auth',
+		],
+		tags: ['VPC Networking', 'Baremetal', 'LDAP Auth', 'Production GA'],
+		url: 'https://www.virtualizor.com/blog/virtualizor-3-2-9-launched-in-stable/',
+	},
+	{
+		title: 'Virtualizor 3.2.9 Launched: VPC & Architecture',
+		category: 'Cloud & VPC',
 		date: 'May 2026',
+		readTime: '4 min read',
+		summary:
+			'Deep architectural breakdown of Virtualizor 3.2.9 software-defined networking, private VLAN isolation, and automated multi-tenant subnet allocation.',
+		highlights: [
+			'Isolated SDN subnet routing per project',
+			'Bridge configuration across KVM hypervisors',
+			'Internal routing gateway performance',
+		],
+		tags: ['SDN', 'VLAN Routing', 'KVM / QEMU', 'Networking'],
 		url: 'https://www.virtualizor.com/blog/virtualizor-3-2-9-launched/',
 	},
 	{
-		title: 'Admin ACL',
+		title: 'Admin ACL (Access Control Lists)',
+		category: 'Security & ACL',
 		date: 'Mar 2025',
+		readTime: '4 min read',
+		summary:
+			'Fine-grained Access Control List (ACL) system allowing root administrators to define granular, category-based permissions for support and operations teams.',
+		highlights: [
+			'Granular subcategory permission matrices',
+			'Scoped administrator vs operator roles',
+			'Audit logging and privilege boundaries',
+		],
+		tags: ['RBAC / ACL', 'Security Governance', 'Admin Scopes', 'Permissions'],
 		url: 'https://www.virtualizor.com/blog/admin-acl/',
 	},
 	{
-		title: 'CPU Threshold',
+		title: 'CPU Threshold Limiting & Throttling',
+		category: 'Performance & Quotas',
 		date: 'Jul 2023',
+		readTime: '3 min read',
+		summary:
+			'Hypervisor resource governance feature enabling administrators to set maximum CPU thresholds per VPS with automated alerts and auto-suspension.',
+		highlights: [
+			'Realtime hypervisor CPU usage monitoring',
+			'Automated throttling and instance suspension',
+			'Noisy-neighbor prevention on shared hosts',
+		],
+		tags: ['Resource Quotas', 'CPU Monitoring', 'Auto Suspension', 'KVM Throttling'],
 		url: 'https://www.virtualizor.com/blog/cpu-threshold-virtualizor/',
 	},
 ];
@@ -1392,7 +1472,7 @@ const Hero = () => {
 				dark:bg-[radial-gradient(circle_at_top,#13203a_0%,transparent_55%)]
 			" />
 
-			<div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-36 pb-32">
+			<div className="relative max-w-[1700px] mx-auto px-6 md:px-10 pt-36 pb-32">
 
 				<div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center">
 
@@ -1400,7 +1480,7 @@ const Hero = () => {
 					<div>
 
 						<p className="text-sm text-blue-500 dark:text-blue-400 font-medium mb-8">
-							Software Engineer • Infrastructure • SaaS Systems
+							Software Engineer • Infrastructure • Self-Hosted • Server Management
 						</p>
 
 						<h1 className="text-5xl md:text-7xl font-bold leading-[1.02] tracking-tight text-gray-900 dark:text-white mb-8">
@@ -1411,7 +1491,7 @@ const Hero = () => {
 
 						<p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-12">
 							Focused on platform engineering, virtualization,
-							automation, infrastructure systems,
+							automation, self-hosted server management,
 							and scalable backend architecture.
 						</p>
 
@@ -1712,103 +1792,421 @@ const FeaturedProject = ({ project, reverse = false }) => {
    CLIENT CARD
 ───────────────────────────────────────────── */
 
-const ClientCard = ({ item }) => (
-	<div className="
-		rounded-3xl
-		border border-gray-200 dark:border-white/10
-		bg-white dark:bg-[#0f172a]
-		p-8
-		transition-all duration-300
-		hover:-translate-y-1
-		hover:shadow-2xl
-	">
+const ClientCard = ({ item }) => {
+	const [imgError, setImgError] = useState(false);
+	const faviconUrl = item.url
+		? `${new URL(item.url).origin}/favicon.ico`
+		: null;
 
-		<h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-5">
-			{item.title}
-		</h3>
+	return (
+		<motion.div
+			layout
+			initial={{ opacity: 0, y: 12 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -12 }}
+			transition={{ duration: 0.3 }}
+			className="
+				group flex flex-col
+				rounded-3xl
+				border border-gray-200 dark:border-white/10
+				bg-white dark:bg-[#0f172a]
+				p-7
+				transition-all duration-300
+				hover:-translate-y-1
+				hover:shadow-2xl
+			"
+		>
 
-		<p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-			{item.description}
-		</p>
+			{/* Header: mark + industry */}
+			<div className="flex items-center justify-between mb-5">
 
-		<div className="flex flex-wrap gap-3 mb-8">
-
-			{item.stack.map((tech) => (
-				<div
-					key={tech}
-					className="
-						px-3 py-1.5 rounded-full
-						bg-gray-100 dark:bg-white/[0.03]
-						border border-gray-200 dark:border-white/10
-						text-sm text-gray-700 dark:text-gray-300
-					"
-				>
-					{tech}
+				<div className="
+					h-11 w-11 shrink-0 flex items-center justify-center
+					rounded-xl overflow-hidden
+					border border-gray-200 dark:border-white/10
+					bg-gray-50 dark:bg-white/[0.03]
+				">
+					{faviconUrl && !imgError ? (
+						<img
+							src={faviconUrl}
+							alt=""
+							loading="lazy"
+							onError={() => setImgError(true)}
+							className="h-6 w-6 object-contain"
+						/>
+					) : (
+						<span className="text-base font-black text-gray-300 dark:text-gray-700 select-none">
+							{item.title.charAt(0)}
+						</span>
+					)}
 				</div>
-			))}
 
-		</div>
+				<span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-500/20">
+					{item.industry}
+				</span>
 
-		{item.url ? (
-			<a
-				href={item.url}
-				target="_blank"
-				rel="noopener noreferrer"
-				className="text-blue-500 dark:text-blue-400 font-medium"
-			>
-				Visit Website →
-			</a>
-		) : (
-			<span className="text-gray-400">
-				In Development
-			</span>
-		)}
+			</div>
 
-	</div>
-);
-
-/* ─────────────────────────────────────────────
-   BLOG ITEM
-───────────────────────────────────────────── */
-
-const BlogItem = ({ item }) => (
-	<a
-		href={item.url}
-		target="_blank"
-		rel="noopener noreferrer"
-		className="
-			group
-			flex flex-col md:flex-row md:items-center
-			justify-between gap-6
-			p-8
-			border-b border-gray-200 dark:border-white/10
-			hover:bg-gray-50 dark:hover:bg-white/[0.02]
-			transition-colors duration-300
-		"
-	>
-
-		<div>
-
-			<p className="text-sm text-gray-500 mb-3">
-				{item.date}
-			</p>
-
-			<h3 className="
-				text-2xl font-semibold
-				text-gray-900 dark:text-white
-				group-hover:text-blue-500 dark:group-hover:text-blue-400
-				transition-colors
-			">
+			{/* Content */}
+			<h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
 				{item.title}
 			</h3>
 
+			<p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
+				{item.description}
+			</p>
+
+			<div className="flex flex-wrap gap-2 mb-6">
+
+				{item.stack.map((tech) => (
+					<span
+						key={tech}
+						className="
+							px-2.5 py-1 rounded-full
+							bg-gray-100 dark:bg-white/[0.03]
+							border border-gray-200 dark:border-white/10
+							text-xs text-gray-700 dark:text-gray-300
+						"
+					>
+						{tech}
+					</span>
+				))}
+
+			</div>
+
+			<div className="mt-auto">
+				{item.url ? (
+					<a
+						href={item.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-sm text-blue-500 dark:text-blue-400 font-medium"
+					>
+						Visit Website →
+					</a>
+				) : (
+					<span className="text-sm text-gray-400">
+						In Development
+					</span>
+				)}
+			</div>
+
+		</motion.div>
+	);
+};
+
+/* ─────────────────────────────────────────────
+   BLOG & TECHNICAL WRITING COMPONENTS
+───────────────────────────────────────────── */
+
+const getCategoryStyle = (category) => {
+	switch (category) {
+		case 'Release Engineering':
+			return {
+				badge: 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-200/80 dark:border-indigo-500/20',
+				accent: 'text-indigo-500 dark:text-indigo-400',
+				dot: 'bg-indigo-500',
+			};
+		case 'Cloud & VPC':
+			return {
+				badge: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200/80 dark:border-blue-500/20',
+				accent: 'text-blue-500 dark:text-blue-400',
+				dot: 'bg-blue-500',
+			};
+		case 'Security & ACL':
+			return {
+				badge: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-200/80 dark:border-emerald-500/20',
+				accent: 'text-emerald-500 dark:text-emerald-400',
+				dot: 'bg-emerald-500',
+			};
+		case 'Performance & Quotas':
+			return {
+				badge: 'bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-200/80 dark:border-amber-500/20',
+				accent: 'text-amber-500 dark:text-amber-400',
+				dot: 'bg-amber-500',
+			};
+		default:
+			return {
+				badge: 'bg-gray-100 dark:bg-white/[0.05] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10',
+				accent: 'text-blue-500 dark:text-blue-400',
+				dot: 'bg-blue-500',
+			};
+	}
+};
+
+const BlogCategoryTabs = ({ active, onChange }) => (
+	<div className="flex items-center gap-2 overflow-x-auto pb-3 sm:pb-0 sm:flex-wrap mb-8">
+		{blogCategories.map((tab) => (
+			<button
+				key={tab}
+				onClick={() => onChange(tab)}
+				className={`
+					relative px-4 py-2 rounded-full text-xs sm:text-sm font-semibold
+					whitespace-nowrap transition-colors duration-200
+					${active === tab
+						? 'text-white'
+						: 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white bg-gray-100/80 dark:bg-white/[0.04] sm:bg-transparent'}
+				`}
+			>
+				{active === tab && (
+					<motion.span
+						layoutId="blogCategoryPill"
+						className="absolute inset-0 rounded-full bg-blue-600 shadow-md shadow-blue-500/25"
+						transition={{ type: 'spring', duration: 0.5, bounce: 0.15 }}
+					/>
+				)}
+				<span className="relative z-10">{tab}</span>
+			</button>
+		))}
+	</div>
+);
+
+const AuthorSpotlight = () => (
+	<motion.div
+		initial={{ opacity: 0, y: 20 }}
+		whileInView={{ opacity: 1, y: 0 }}
+		viewport={{ once: true }}
+		transition={{ duration: 0.4 }}
+		className="
+			relative overflow-hidden
+			rounded-2xl sm:rounded-3xl
+			border border-blue-100 dark:border-blue-900/40
+			bg-gradient-to-br from-blue-50/70 via-white to-indigo-50/40
+			dark:from-[#0d162d]/90 dark:via-[#090f20]/90 dark:to-[#111833]/90
+			backdrop-blur-xl
+			p-6 sm:p-8 md:p-10
+			mb-10
+			shadow-lg shadow-blue-500/5
+		"
+	>
+		{/* Ambient glow decoration */}
+		<div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-blue-400/10 dark:bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+		<div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-8">
+			<div className="max-w-3xl">
+				<div className="flex flex-wrap items-center gap-2.5 mb-3">
+					<span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-600 text-white shadow-sm">
+						<svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
+							<path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+						</svg>
+						Official Contributor
+					</span>
+					<span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+						Virtualizor Platform Engineering
+					</span>
+				</div>
+
+				<h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-gray-900 dark:text-white mb-3">
+					Authoring Production Architecture & Virtualization Insights
+				</h3>
+
+				<p className="text-sm sm:text-base text-gray-600 dark:text-gray-300/90 leading-relaxed">
+					Documenting complex system architectures, release candidate milestones, software-defined networking (VPC), hypervisor resource controls, and multi-tenant security frameworks for thousands of global hosting providers and infrastructure engineers.
+				</p>
+			</div>
+
+			<div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+				<a
+					href="https://www.virtualizor.com/blog/author/dipesh/"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="
+						inline-flex items-center justify-center gap-2.5
+						px-6 py-3.5 rounded-2xl
+						bg-blue-600 hover:bg-blue-700
+						text-white text-sm font-semibold
+						shadow-md shadow-blue-600/25
+						hover:-translate-y-0.5 active:translate-y-0
+						transition-all duration-200
+					"
+				>
+					<span>View Author Archive</span>
+					<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+						<path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+					</svg>
+				</a>
+			</div>
 		</div>
 
-		<div className="text-blue-500 dark:text-blue-400 font-medium">
-			Read Article →
+		{/* Quick topic tags */}
+		<div className="mt-6 pt-6 border-t border-gray-200/60 dark:border-white/10 flex flex-wrap items-center gap-2 text-xs">
+			<span className="font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider text-[11px] mr-1">
+				Key Domains:
+			</span>
+			{['VPC & Cloud Networking', 'KVM & Virtuozzo Hypervisors', 'Role-Based Access (ACL)', 'CPU Quotas & Throttling', 'WHMCS & Automation'].map((topic) => (
+				<span
+					key={topic}
+					className="px-2.5 py-1 rounded-lg bg-white/80 dark:bg-white/[0.04] border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 font-medium"
+				>
+					{topic}
+				</span>
+			))}
 		</div>
+	</motion.div>
+);
 
-	</a>
+const BlogCard = ({ item, index }) => {
+	const style = getCategoryStyle(item.category);
+
+	return (
+		<motion.article
+			layout
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, scale: 0.96 }}
+			transition={{ duration: 0.35, delay: index * 0.05 }}
+			className="
+				group relative flex flex-col h-full
+				rounded-2xl sm:rounded-3xl
+				border border-gray-200 dark:border-white/10
+				bg-white dark:bg-[#0f172a]
+				p-6 sm:p-7 md:p-8
+				transition-all duration-300
+				hover:-translate-y-1.5
+				hover:border-blue-500/40 dark:hover:border-blue-500/40
+				hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-2xl dark:hover:shadow-blue-950/50
+			"
+		>
+			{/* Top Bar: Category + Date & Read Time */}
+			<div className="flex flex-wrap items-center justify-between gap-3 mb-5">
+				<div className="flex flex-wrap items-center gap-2">
+					<span className={`text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${style.badge}`}>
+						{item.category}
+					</span>
+					{item.badge && (
+						<span className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-500/20">
+							<span className="relative flex h-1.5 w-1.5">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+								<span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+							</span>
+							{item.badge}
+						</span>
+					)}
+				</div>
+
+				<div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 tabular-nums">
+					<span>{item.date}</span>
+					<span>•</span>
+					<span>{item.readTime}</span>
+				</div>
+			</div>
+
+			{/* Title */}
+			<h3 className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+				<a
+					href={item.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="focus:outline-none"
+				>
+					{item.title}
+				</a>
+			</h3>
+
+			{/* Summary */}
+			<p className="text-sm sm:text-base text-gray-600 dark:text-gray-300/90 leading-relaxed mb-6">
+				{item.summary}
+			</p>
+
+			{/* Architectural Highlights */}
+			{item.highlights && item.highlights.length > 0 && (
+				<div className="mb-6 space-y-2.5 bg-gray-50 dark:bg-white/[0.02] p-4 rounded-xl border border-gray-100 dark:border-white/[0.06]">
+					<p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+						Key Highlights
+					</p>
+					<ul className="space-y-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+						{item.highlights.map((point) => (
+							<li key={point} className="flex items-start gap-2.5">
+								<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-500 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+									<path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+								</svg>
+								<span className="leading-snug">{point}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			)}
+
+			{/* Tags */}
+			<div className="flex flex-wrap gap-1.5 sm:gap-2 mb-8 mt-auto">
+				{item.tags.map((tag) => (
+					<span
+						key={tag}
+						className="
+							px-2.5 py-1 rounded-lg
+							bg-gray-100 dark:bg-white/[0.04]
+							border border-gray-200/80 dark:border-white/10
+							text-xs text-gray-600 dark:text-gray-400
+							font-medium
+						"
+					>
+						{tag}
+					</span>
+				))}
+			</div>
+
+			{/* Card Footer Link */}
+			<div className="pt-4 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+				<span className="text-xs font-semibold text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
+					<svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+					</svg>
+					Virtualizor Blog
+				</span>
+
+				<a
+					href={item.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="
+						inline-flex items-center gap-2
+						text-sm font-semibold
+						text-blue-600 dark:text-blue-400
+						hover:text-blue-700 dark:hover:text-blue-300
+						transition-colors
+					"
+				>
+					<span>Read Article</span>
+					<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+						<path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+					</svg>
+				</a>
+			</div>
+		</motion.article>
+	);
+};
+
+/* ─────────────────────────────────────────────
+   INDUSTRY TABS
+───────────────────────────────────────────── */
+
+const IndustryTabs = ({ active, onChange }) => (
+	<div className="flex flex-wrap gap-2 mb-10">
+
+		{industryTabs.map((tab) => (
+			<button
+				key={tab}
+				onClick={() => onChange(tab)}
+				className={`
+					relative px-4 py-2 rounded-full text-sm font-semibold
+					transition-colors duration-200
+					${active === tab
+						? 'text-white'
+						: 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}
+				`}
+			>
+				{active === tab && (
+					<motion.span
+						layoutId="industryTabPill"
+						className="absolute inset-0 rounded-full bg-blue-600"
+						transition={{ type: 'spring', duration: 0.5, bounce: 0.15 }}
+					/>
+				)}
+				<span className="relative z-10">{tab}</span>
+			</button>
+		))}
+
+	</div>
 );
 
 /* ─────────────────────────────────────────────
@@ -1816,6 +2214,17 @@ const BlogItem = ({ item }) => (
 ───────────────────────────────────────────── */
 
 const Projects = () => {
+	const [activeIndustry, setActiveIndustry] = useState('All');
+	const [activeBlogCategory, setActiveBlogCategory] = useState('All');
+
+	const filteredClients = activeIndustry === 'All'
+		? clientProjects
+		: clientProjects.filter((item) => item.industry === activeIndustry);
+
+	const filteredBlogs = activeBlogCategory === 'All'
+		? blogs
+		: blogs.filter((item) => item.category === activeBlogCategory);
+
 	return (
 		<div className="
 			bg-white dark:bg-[#050816]
@@ -1828,7 +2237,7 @@ const Projects = () => {
 			<Hero />
 
 			{/* FEATURED */}
-			<section className="max-w-7xl mx-auto px-6 md:px-10 pb-40">
+			<section className="max-w-[1700px] mx-auto px-6 md:px-10 pb-40">
 
 				<SectionLabel
 					number="01"
@@ -1851,49 +2260,95 @@ const Projects = () => {
 			</section>
 
 			{/* CLIENT WORK */}
-			<section className="max-w-7xl mx-auto px-6 md:px-10 pb-40">
+			<section className="max-w-[1700px] mx-auto px-6 md:px-10 pb-40">
 
 				<SectionLabel
 					number="02"
 					title="Client Work"
-					subtitle="Selected client websites and production deployments built for businesses and industrial platforms."
+					subtitle="Selected client websites and production deployments spanning finance, industrial, packaging, interior design, and creative & media."
 				/>
 
-				<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+				<IndustryTabs active={activeIndustry} onChange={setActiveIndustry} />
 
-					{clientProjects.map((item) => (
-						<ClientCard
-							key={item.title}
-							item={item}
-						/>
-					))}
+				<motion.div layout className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-				</div>
+					<AnimatePresence mode="popLayout">
+						{filteredClients.map((item) => (
+							<ClientCard
+								key={item.title}
+								item={item}
+							/>
+						))}
+					</AnimatePresence>
+
+				</motion.div>
 
 			</section>
 
-			{/* BLOGS */}
-			<section className="max-w-7xl mx-auto px-6 md:px-10 pb-40">
+			{/* TECHNICAL WRITING & PUBLICATIONS */}
+			<section className="max-w-[1700px] mx-auto px-6 md:px-10 pb-40">
 
 				<SectionLabel
 					number="03"
-					title="Technical Writing"
-					subtitle="Engineering articles, infrastructure features, and platform updates published on the Virtualizor blog."
+					title="Technical Writing & Publications"
+					subtitle="In-depth technical guides, infrastructure features, hypervisor optimizations, and release engineering articles published on the official Virtualizor blog."
 				/>
 
-				<div className="
-					rounded-3xl overflow-hidden
-					border border-gray-200 dark:border-white/10
-					bg-white dark:bg-[#0f172a]
-				">
+				{/* Author Spotlight Banner */}
+				<AuthorSpotlight />
 
-					{blogs.map((item) => (
-						<BlogItem
-							key={item.title}
-							item={item}
-						/>
-					))}
+				{/* Topic / Category Filter Tabs */}
+				<BlogCategoryTabs active={activeBlogCategory} onChange={setActiveBlogCategory} />
 
+				{/* Responsive Article Grid */}
+				<motion.div layout className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+
+					<AnimatePresence mode="popLayout">
+						{filteredBlogs.map((item, index) => (
+							<BlogCard
+								key={item.title}
+								item={item}
+								index={index}
+							/>
+						))}
+					</AnimatePresence>
+
+				</motion.div>
+
+				{/* Bottom Platform CTA Card */}
+				<div className="mt-14 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl border border-gray-200 dark:border-white/10 bg-gray-50/80 dark:bg-white/[0.02] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+					<div>
+						<h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+							Explore Full Archive & Changelogs
+						</h4>
+						<p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+							Browse complete release notes, patch announcements, and virtualization guides authored on the official Virtualizor platform.
+						</p>
+					</div>
+
+					<a
+						href="https://www.virtualizor.com/blog/author/dipesh/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="
+							shrink-0 group inline-flex items-center gap-2.5
+							px-6 py-3.5 rounded-2xl
+							border border-gray-300 dark:border-white/10
+							bg-white dark:bg-white/[0.05]
+							text-sm font-semibold
+							text-gray-900 dark:text-white
+							hover:bg-gray-100 dark:hover:bg-white/10
+							hover:border-blue-500/50
+							hover:-translate-y-0.5
+							transition-all duration-200
+							shadow-sm
+						"
+					>
+						<span>View Author Archive</span>
+						<svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+							<path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+						</svg>
+					</a>
 				</div>
 
 			</section>

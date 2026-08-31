@@ -8,6 +8,7 @@ function Home() {
     return (
         <>
             <div className='home'>
+              <div className='homeInner'>
                 <div className='homeDiv1'>
                     <div className='whf'>
                         <h1 className='title'>
@@ -84,6 +85,7 @@ function Home() {
                         <img className='boyCoding' src={boyCoding} alt="Boy Coding" />
                     </div>
                 </div>
+              </div>
                 <div className='contactUs'>
                     <ContactUs />
                 </div>

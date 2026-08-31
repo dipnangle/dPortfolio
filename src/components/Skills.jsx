@@ -43,6 +43,7 @@ const Skills = () => {
 	return (
 		<>
 			<div className='skillsDiv'>
+			  <div className='skillsInner'>
 				{/* Developement Skills */}
 				<div className='development'>
 					<div className='lg:w-1/2 md:w-1/2'>
@@ -131,6 +132,7 @@ const Skills = () => {
 						</div>
 					</div>
 				</div>
+			  </div>
 			</div>
 		</>
 	);
